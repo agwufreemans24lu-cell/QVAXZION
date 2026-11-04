@@ -15,13 +15,14 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: {
-                            dark: '#050505',      /* Deep matte black void */
-                            surface: '#0A0A0A',   /* Elevated dark surface */
-                            card: '#121212',      /* Clean card container */
-                            platinum: '#E5E7EB',  /* Crisp platinum highlight */
-                            silver: '#9CA3AF',    /* Muted silver text */
-                            border: '#262626'     /* Razor-sharp technical border */
+                        atelier: {
+                            bg: '#0C0F0E',        /* Deep midnight luxury undertone */
+                            surface: '#141A18',   /* Rich charcoal card base */
+                            card: '#1A2320',      /* Elevated container */
+                            gold: '#D4AF37',      /* Brushed champagne gold */
+                            goldLight: '#F3E5AB', /* Soft highlight gold */
+                            goldMuted: '#998126', /* Antiqued bronze gold */
+                            border: '#273832'     /* Fine structural border */
                         }
                     },
                     fontFamily: {
@@ -34,80 +35,81 @@
     </script>
     <style>
         body {
-            background-color: #050505;
-            color: #E5E7EB;
+            background-color: #0C0F0E;
+            color: #F3E5AB;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
         .font-cinzel { font-family: 'Cinzel', serif; }
-        .platinum-gradient-text {
-            background: linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 50%, #9CA3AF 100%);
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF5CC 0%, #D4AF37 50%, #998126 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .platinum-border {
-            border-color: #262626;
+        .gold-border {
+            border-color: #273832;
         }
-        .platinum-border:focus {
-            border-color: #E5E7EB;
-            box-shadow: 0 0 15px rgba(229, 231, 235, 0.15);
+        .gold-border:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
         /* Custom subtle scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #E5E7EB; }
+        ::-webkit-scrollbar-track { background: #0C0F0E; }
+        ::-webkit-scrollbar-thumb { background: #273832; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
     </style>
 </head>
-<body class="bg-obsidian-dark text-obsidian-silver antialiased selection:bg-obsidian-platinum selection:text-obsidian-dark">
+<body class="bg-atelier-bg text-atelier-goldLight antialiased selection:bg-atelier-gold selection:text-atelier-bg">
 
     <!-- Top Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian-dark/90 backdrop-blur-md border-b border-obsidian-border">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-atelier-bg/90 backdrop-blur-md border-b border-atelier-border">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#" class="font-cinzel text-2xl md:text-3xl font-bold tracking-[0.2em] platinum-gradient-text">
+            <a href="#" class="font-cinzel text-2xl md:text-3xl font-bold tracking-[0.25em] gold-gradient-text">
                 QVAXZION
             </a>
 
             <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-10 text-xs font-semibold tracking-[0.25em] uppercase text-obsidian-silver/80">
-                <a href="#manifesto" class="hover:text-obsidian-platinum transition-colors">Manifesto</a>
-                <a href="#atelier" class="hover:text-obsidian-platinum transition-colors">Atelier</a>
-                <a href="#vault" class="hover:text-obsidian-platinum transition-colors">VIP Vault</a>
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-semibold tracking-[0.25em] uppercase text-atelier-goldLight/70">
+                <a href="#manifesto" class="hover:text-atelier-gold transition-colors">Manifesto</a>
+                <a href="#atelier" class="hover:text-atelier-gold transition-colors">Atelier Merch</a>
+                <a href="#vault" class="hover:text-atelier-gold transition-colors">VIP Vault</a>
             </nav>
 
             <!-- Action Trigger -->
-            <a href="#vault" class="px-5 py-2.5 text-xs font-cinzel font-bold tracking-[0.15em] uppercase border border-obsidian-platinum text-obsidian-platinum hover:bg-obsidian-platinum hover:text-obsidian-dark transition-all duration-300">
-                Access Portal
+            <a href="#vault" class="px-5 py-2.5 text-xs font-cinzel font-bold tracking-[0.15em] uppercase border border-atelier-gold text-atelier-gold hover:bg-atelier-gold hover:text-atelier-bg transition-all duration-300">
+                Secure Access
             </a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
-        <!-- Background Ambient Glow -->
+        <!-- Ambient Designer Background Watermark & Glow -->
         <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
-            <div class="w-[600px] h-[600px] bg-white/5 rounded-full blur-[140px]"></div>
+            <div class="absolute w-[700px] h-[700px] bg-atelier-gold/5 rounded-full blur-[150px]"></div>
+            <div class="font-cinzel text-[22vw] font-black text-atelier-border/15 tracking-tighter select-none uppercase">QX</div>
         </div>
 
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <p class="text-xs md:text-sm font-cinzel tracking-[0.4em] text-obsidian-platinum uppercase mb-4">
+            <p class="text-xs md:text-sm font-cinzel tracking-[0.4em] text-atelier-gold uppercase mb-4">
                 Digital Avant-Garde Haute Couture
             </p>
-            <h1 class="font-cinzel text-5xl md:text-8xl font-black tracking-[0.1em] text-white mb-6">
+            <h1 class="font-cinzel text-5xl md:text-8xl font-black tracking-[0.12em] text-white mb-6">
                 QVAXZION
             </h1>
-            <p class="font-cinzel text-lg md:text-xl tracking-[0.25em] text-obsidian-silver/60 uppercase mb-10">
+            <p class="font-cinzel text-lg md:text-xl tracking-[0.3em] text-atelier-goldMuted uppercase mb-10">
                 /kwah-ZEE-on/
             </p>
-            <p class="max-w-2xl mx-auto text-sm md:text-base text-obsidian-silver/70 font-light leading-relaxed mb-12">
+            <p class="max-w-2xl mx-auto text-sm md:text-base text-atelier-goldLight/70 font-light leading-relaxed mb-12">
                 A pristine digital sanctuary operating outside traditional timelines. Zero history. Total autonomy. Pure architectural execution engineered for the modern elite.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                <a href="#vault" class="w-full sm:w-auto px-8 py-4 bg-obsidian-platinum text-obsidian-dark font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-white transition-all duration-300 shadow-2xl">
-                    Enter Secure Portal
+                <a href="#vault" class="w-full sm:w-auto px-8 py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-2xl">
+                    Enter VIP Vault
                 </a>
-                <a href="#manifesto" class="w-full sm:w-auto px-8 py-4 border border-obsidian-border text-obsidian-platinum font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:border-obsidian-platinum transition-all duration-300">
+                <a href="#manifesto" class="w-full sm:w-auto px-8 py-4 border border-atelier-border text-atelier-goldLight font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:border-atelier-gold transition-all duration-300">
                     Explore Manifesto
                 </a>
             </div>
@@ -115,184 +117,176 @@
     </section>
 
     <!-- Manifesto Section (Concept 1) -->
-    <section id="manifesto" class="py-32 px-6 bg-obsidian-surface border-t border-b border-obsidian-border">
-        <div class="max-w-6xl mx-auto">
+    <section id="manifesto" class="py-32 px-6 bg-atelier-surface border-t border-b border-atelier-border relative">
+        <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-20">
-                <p class="text-xs font-cinzel tracking-[0.3em] text-obsidian-platinum uppercase mb-3">The Architectural Standard</p>
+                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">The Architectural Standard</p>
                 <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">The Manifesto</h2>
-                <div class="w-16 h-[1px] bg-obsidian-platinum mx-auto mt-6"></div>
+                <div class="w-16 h-[1px] bg-atelier-gold mx-auto mt-6"></div>
             </div>
 
             <!-- 8 Pillars Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Q -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">Q</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">Q</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Quality</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">Uncompromising material integrity and execution across every physical and digital thread.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">Uncompromising material integrity and execution across every physical and digital thread.</p>
                 </div>
-                <!-- V -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">V</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">V</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Vision</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">Defining tomorrow's silhouettes before they are recognized by mainstream paradigms.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">Defining tomorrow's silhouettes before they are recognized by mainstream paradigms.</p>
                 </div>
-                <!-- A -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">A</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">A</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Autonomy</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">Existing entirely outside seasonal retail cycles, trends, and mass production limits.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">Existing entirely outside seasonal retail cycles, trends, and mass production limits.</p>
                 </div>
-                <!-- X -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">X</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">X</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Variable</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">The absolute mark of individual signature and unmapped creative expression.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">The absolute mark of individual signature and unmapped creative expression.</p>
                 </div>
-                <!-- Z -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">Z</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">Z</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Zero</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">A blank, pristine canvas completely untouched by historical baggage or clutter.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">A blank, pristine canvas completely untouched by historical baggage or clutter.</p>
                 </div>
-                <!-- I -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">I</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">I</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Innovation</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">Sculptural precision rendered through advanced digital mastery and code architecture.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">Sculptural precision rendered through advanced digital mastery and code architecture.</p>
                 </div>
-                <!-- O -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">O</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">O</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Originality</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">Zero imitation. Total structural purity and standalone ownership of space.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">Zero imitation. Total structural purity and standalone ownership of space.</p>
                 </div>
-                <!-- N -->
-                <div class="p-8 bg-obsidian-card border border-obsidian-border hover:border-obsidian-platinum/50 transition-all duration-300 group">
-                    <span class="font-cinzel text-4xl font-bold platinum-gradient-text block mb-4">N</span>
+                <div class="p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold/50 transition-all duration-300 group">
+                    <span class="font-cinzel text-4xl font-bold gold-gradient-text block mb-4">N</span>
                     <h3 class="font-cinzel text-lg text-white font-semibold tracking-wider mb-2">Nobility</h3>
-                    <p class="text-xs text-obsidian-silver/60 leading-relaxed font-light">The refined, quiet elegance characteristic of absolute high luxury houses.</p>
+                    <p class="text-xs text-atelier-goldLight/60 leading-relaxed font-light">The refined, quiet elegance characteristic of absolute high luxury houses.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Atelier Preview Section -->
+    <!-- Atelier & Merch Preview Section -->
     <section id="atelier" class="py-32 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
                 <div>
-                    <p class="text-xs font-cinzel tracking-[0.3em] text-obsidian-platinum uppercase mb-3">Selected Works</p>
-                    <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">The Atelier Series</h2>
+                    <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Atelier & Capsule Merch</p>
+                    <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">The Series 01 Drop</h2>
                 </div>
-                <p class="text-xs text-obsidian-silver/50 tracking-widest uppercase mt-4 md:mt-0 font-cinzel">Limited Release — Series 01</p>
+                <p class="text-xs text-atelier-goldLight/50 tracking-widest uppercase mt-4 md:mt-0 font-cinzel">Exclusive Allocation</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Item 1 -->
-                <div class="group bg-obsidian-surface border border-obsidian-border overflow-hidden">
-                    <div class="h-80 bg-obsidian-card flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark via-transparent to-transparent opacity-60"></div>
-                        <span class="font-cinzel text-6xl font-black text-obsidian-border tracking-tighter group-hover:text-obsidian-platinum/20 transition-all duration-500">QX-01</span>
+                <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
+                    <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent opacity-60"></div>
+                        <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all duration-500">QX-01</span>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
                             <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Monolith Overcoat</h3>
-                            <span class="text-xs text-obsidian-platinum font-mono">ENCRYPTED</span>
+                            <span class="text-xs text-atelier-gold font-mono">LIMITED</span>
                         </div>
-                        <p class="text-xs text-obsidian-silver/60 font-light">Structured heavy wool silhouette featuring laser-etched hardware.</p>
+                        <p class="text-xs text-atelier-goldLight/60 font-light">Structured heavy wool silhouette featuring laser-etched custom hardware.</p>
                     </div>
                 </div>
                 <!-- Item 2 -->
-                <div class="group bg-obsidian-surface border border-obsidian-border overflow-hidden">
-                    <div class="h-80 bg-obsidian-card flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark via-transparent to-transparent opacity-60"></div>
-                        <span class="font-cinzel text-6xl font-black text-obsidian-border tracking-tighter group-hover:text-obsidian-platinum/20 transition-all duration-500">QX-02</span>
+                <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
+                    <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent opacity-60"></div>
+                        <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all duration-500">QX-02</span>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Vanguard Cipher Vest</h3>
-                            <span class="text-xs text-obsidian-platinum font-mono">ENCRYPTED</span>
+                            <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Vanguard Cipher Hoodie</h3>
+                            <span class="text-xs text-atelier-gold font-mono">CAPSULE</span>
                         </div>
-                        <p class="text-xs text-obsidian-silver/60 font-light">Modular asymmetrical tailoring built with water-repellant technical twill.</p>
+                        <p class="text-xs text-atelier-goldLight/60 font-light">Heavyweight loopback cotton with metallic tonal QVAXZION embroidery.</p>
                     </div>
                 </div>
                 <!-- Item 3 -->
-                <div class="group bg-obsidian-surface border border-obsidian-border overflow-hidden">
-                    <div class="h-80 bg-obsidian-card flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark via-transparent to-transparent opacity-60"></div>
-                        <span class="font-cinzel text-6xl font-black text-obsidian-border tracking-tighter group-hover:text-obsidian-platinum/20 transition-all duration-500">QX-03</span>
+                <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
+                    <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent opacity-60"></div>
+                        <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all duration-500">QX-03</span>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
                             <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Apex Silk Trousers</h3>
-                            <span class="text-xs text-obsidian-platinum font-mono">ENCRYPTED</span>
+                            <span class="text-xs text-atelier-gold font-mono">ARCHIVAL</span>
                         </div>
-                        <p class="text-xs text-obsidian-silver/60 font-light">High-waist architectural pleating designed with raw Japanese silk.</p>
+                        <p class="text-xs text-atelier-goldLight/60 font-light">High-waist architectural pleating designed with raw technical twill.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECURED VIP / PRIVATE VAULT SECTION -->
-    <section id="vault" class="py-32 px-6 bg-obsidian-surface border-t border-obsidian-border relative">
+    <!-- SECURED VIP / PRIVATE VAULT SECTION WITH REAL ACCOUNT LOGIN -->
+    <section id="vault" class="py-32 px-6 bg-atelier-surface border-t border-atelier-border relative">
         <div class="max-w-xl mx-auto">
             <div class="text-center mb-12">
-                <span class="inline-block p-3 rounded-full bg-obsidian-card border border-obsidian-border text-obsidian-platinum mb-4">
+                <span class="inline-block p-3 rounded-full bg-atelier-card border border-atelier-border text-atelier-gold mb-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                 </span>
-                <p class="text-xs font-cinzel tracking-[0.3em] text-obsidian-platinum uppercase mb-2">Restricted Access</p>
+                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Restricted Membership</p>
                 <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white">The VIP Vault Portal</h2>
-                <p class="text-xs text-obsidian-silver/60 mt-3 font-light">Authenticate with your credentials to access private collection releases, drops, and secure digital lookbooks.</p>
+                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Create a verified account or sign in with registered credentials to access private collection drops.</p>
             </div>
 
             <!-- Authentication Box -->
-            <div id="authContainer" class="p-8 md:p-10 bg-obsidian-card border border-obsidian-border shadow-2xl relative">
+            <div id="authContainer" class="p-8 md:p-10 bg-atelier-card border border-atelier-border shadow-2xl relative">
                 <!-- Mode Tabs -->
-                <div class="flex border-b border-obsidian-border mb-8">
-                    <button id="loginTabBtn" onclick="switchTab('login')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-obsidian-platinum border-b-2 border-obsidian-platinum transition-all">Sign In</button>
-                    <button id="registerTabBtn" onclick="switchTab('register')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-obsidian-silver/40 hover:text-obsidian-platinum transition-all">Request Access</button>
+                <div class="flex border-b border-atelier-border mb-8">
+                    <button id="loginTabBtn" onclick="switchTab('login')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-gold border-b-2 border-atelier-gold transition-all">Sign In</button>
+                    <button id="registerTabBtn" onclick="switchTab('register')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-goldLight/40 hover:text-atelier-gold transition-all">Create Account</button>
                 </div>
 
                 <!-- Form -->
                 <form id="vaultForm" onsubmit="handleAuth(event)" class="space-y-6">
                     <div id="nameFieldContainer" class="hidden">
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-obsidian-silver/80 mb-2">Full Legal Name / Alias</label>
-                        <input type="text" id="fullName" placeholder="Enter full name" class="w-full bg-obsidian-dark border border-obsidian-border px-4 py-3.5 text-sm text-white focus:outline-none platinum-transition rounded-none">
+                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Full Legal Name / Alias</label>
+                        <input type="text" id="fullName" placeholder="Enter full name" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none gold-transition rounded-none">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-obsidian-silver/80 mb-2">Secure Email Address</label>
-                        <input type="email" id="emailInput" required placeholder="client@qvaxzion.com" class="w-full bg-obsidian-dark border border-obsidian-border px-4 py-3.5 text-sm text-white focus:outline-none platinum-transition rounded-none">
+                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Registered Email Address</label>
+                        <input type="email" id="emailInput" required placeholder="client@qvaxzion.com" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none gold-transition rounded-none">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-obsidian-silver/80 mb-2">Vault Passcode</label>
-                        <input type="password" id="passwordInput" required placeholder="••••••••••••" class="w-full bg-obsidian-dark border border-obsidian-border px-4 py-3.5 text-sm text-white focus:outline-none platinum-transition rounded-none">
+                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Vault Passcode (Min. 6 Characters)</label>
+                        <input type="password" id="passwordInput" required placeholder="••••••••••••" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none gold-transition rounded-none">
                     </div>
 
                     <div id="authFeedback" class="text-xs text-center hidden"></div>
 
-                    <button type="submit" id="submitBtn" class="w-full py-4 bg-obsidian-platinum text-obsidian-dark font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-white transition-all duration-300 shadow-lg">
+                    <button type="submit" id="submitBtn" class="w-full py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-lg">
                         Authenticate Identity
                     </button>
                 </form>
             </div>
 
             <!-- Unlocked Vault Content (Initially Hidden) -->
-            <div id="vaultContent" class="hidden p-8 md:p-10 bg-obsidian-card border border-obsidian-platinum/50 shadow-2xl text-center">
-                <div class="inline-flex p-3 rounded-full bg-white/10 text-obsidian-platinum mb-4">
+            <div id="vaultContent" class="hidden p-8 md:p-10 bg-atelier-card border border-atelier-gold/50 shadow-2xl text-center">
+                <div class="inline-flex p-3 rounded-full bg-atelier-gold/10 text-atelier-gold mb-4">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
                 </div>
                 <h3 class="font-cinzel text-xl font-bold tracking-wider text-white mb-2">Access Granted</h3>
-                <p id="welcomeUserText" class="text-xs text-obsidian-platinum mb-6 font-mono"></p>
-                <div class="p-4 bg-obsidian-dark border border-obsidian-border text-left mb-6 space-y-2">
-                    <p class="text-xs text-obsidian-silver/80 font-semibold tracking-wider uppercase font-cinzel">Active Security Clearance:</p>
-                    <p class="text-xs text-obsidian-silver/60">• Level 1 Encrypted Lookbook Unlocked</p>
-                    <p class="text-xs text-obsidian-silver/60">• Priority Allocation for Series 01 Drop</p>
+                <p id="welcomeUserText" class="text-xs text-atelier-gold mb-6 font-mono"></p>
+                <div class="p-4 bg-atelier-bg border border-atelier-border text-left mb-6 space-y-2">
+                    <p class="text-xs text-atelier-goldLight/80 font-semibold tracking-wider uppercase font-cinzel">Active Security Clearance:</p>
+                    <p class="text-xs text-atelier-goldLight/60">• Level 1 Encrypted Lookbook Unlocked</p>
+                    <p class="text-xs text-atelier-goldLight/60">• Priority Allocation for Series 01 Drop</p>
                 </div>
-                <button onclick="handleLogout()" class="px-6 py-3 border border-obsidian-border text-xs font-cinzel font-bold tracking-widest text-obsidian-silver hover:border-obsidian-platinum uppercase transition-all">
+                <button onclick="handleLogout()" class="px-6 py-3 border border-atelier-border text-xs font-cinzel font-bold tracking-widest text-atelier-goldLight hover:border-atelier-gold uppercase transition-all">
                     Lock Session
                 </button>
             </div>
@@ -300,14 +294,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 px-6 bg-obsidian-dark border-t border-obsidian-border text-center">
+    <footer class="py-16 px-6 bg-atelier-bg border-t border-atelier-border text-center">
         <div class="max-w-7xl mx-auto flex flex-col items-center justify-center space-y-6">
-            <span class="font-cinzel text-xl font-bold tracking-[0.25em] platinum-gradient-text">QVAXZION</span>
-            <p class="text-xs text-obsidian-silver/40 tracking-widest font-light">© 2026 QVAXZION. All Rights Reserved. Absolute Digital Exclusivity.</p>
+            <span class="font-cinzel text-xl font-bold tracking-[0.25em] gold-gradient-text">QVAXZION</span>
+            <p class="text-xs text-atelier-goldLight/40 tracking-widest font-light">© 2026 QVAXZION. All Rights Reserved. Absolute Digital Exclusivity.</p>
         </div>
     </footer>
 
-    <!-- Frontend Interactive Authentication Script -->
+    <!-- Strict Account Database & Authentication Script -->
     <script>
         let currentMode = 'login';
 
@@ -322,42 +316,82 @@
             feedback.classList.add('hidden');
 
             if (mode === 'login') {
-                loginBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-obsidian-platinum border-b-2 border-obsidian-platinum transition-all";
-                registerBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-obsidian-silver/40 hover:text-obsidian-platinum transition-all";
+                loginBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-gold border-b-2 border-atelier-gold transition-all";
+                registerBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-goldLight/40 hover:text-atelier-gold transition-all";
                 nameField.classList.add('hidden');
                 submitBtn.innerText = "Authenticate Identity";
             } else {
-                registerBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-obsidian-platinum border-b-2 border-obsidian-platinum transition-all";
-                loginBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-obsidian-silver/40 hover:text-obsidian-platinum transition-all";
+                registerBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-gold border-b-2 border-atelier-gold transition-all";
+                loginBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-goldLight/40 hover:text-atelier-gold transition-all";
                 nameField.classList.remove('hidden');
-                submitBtn.innerText = "Register Credentials";
+                submitBtn.innerText = "Register Account";
             }
         }
 
         function handleAuth(event) {
             event.preventDefault();
-            const email = document.getElementById('emailInput').value;
+            const email = document.getElementById('emailInput').value.trim().toLowerCase();
             const password = document.getElementById('passwordInput').value;
-            const fullName = document.getElementById('fullName').value;
+            const fullName = document.getElementById('fullName').value.trim();
             const feedback = document.getElementById('authFeedback');
 
             if (password.length < 6) {
-                feedback.innerText = "Error: Passcode must contain at least 6 characters for vault encryption.";
+                feedback.innerText = "Error: Passcode must contain at least 6 characters.";
                 feedback.className = "text-xs text-red-400 text-center";
                 feedback.classList.remove('hidden');
                 return;
             }
 
-            // Simulate secure handshake & session storage
-            feedback.innerText = currentMode === 'login' ? "Establishing secure connection..." : "Encoding secure credentials...";
-            feedback.className = "text-xs text-obsidian-platinum text-center animate-pulse";
-            feedback.classList.remove('hidden');
+            // Retrieve local user database
+            let users = JSON.parse(localStorage.getItem('qvaxzion_vault_users') || '{}');
 
-            setTimeout(() => {
-                document.getElementById('authContainer').classList.add('hidden');
-                document.getElementById('vaultContent').classList.remove('hidden');
-                document.getElementById('welcomeUserText').innerText = `Authorized Client: ${email}`;
-            }, 1000);
+            if (currentMode === 'register') {
+                if (users[email]) {
+                    feedback.innerText = "Error: Account already exists with this email. Please sign in.";
+                    feedback.className = "text-xs text-red-400 text-center";
+                    feedback.classList.remove('hidden');
+                    return;
+                }
+                if (!fullName) {
+                    feedback.innerText = "Error: Please enter your full legal name or alias.";
+                    feedback.className = "text-xs text-red-400 text-center";
+                    feedback.classList.remove('hidden');
+                    return;
+                }
+
+                // Register user
+                users[email] = { password: password, name: fullName };
+                localStorage.setItem('qvaxzion_vault_users', JSON.stringify(users));
+
+                feedback.innerText = "Account registered successfully. Initializing vault session...";
+                feedback.className = "text-xs text-atelier-gold text-center animate-pulse";
+                feedback.classList.remove('hidden');
+
+                setTimeout(() => {
+                    document.getElementById('authContainer').classList.add('hidden');
+                    document.getElementById('vaultContent').classList.remove('hidden');
+                    document.getElementById('welcomeUserText').innerText = `Authorized Client: ${fullName} (${email})`;
+                }, 1000);
+
+            } else {
+                // Login check
+                if (!users[email] || users[email].password !== password) {
+                    feedback.innerText = "Access Denied: Unrecognized credentials or incorrect password. Please create an account first.";
+                    feedback.className = "text-xs text-red-400 text-center";
+                    feedback.classList.remove('hidden');
+                    return;
+                }
+
+                feedback.innerText = "Establishing secure cryptographic handshake...";
+                feedback.className = "text-xs text-atelier-gold text-center animate-pulse";
+                feedback.classList.remove('hidden');
+
+                setTimeout(() => {
+                    document.getElementById('authContainer').classList.add('hidden');
+                    document.getElementById('vaultContent').classList.remove('hidden');
+                    document.getElementById('welcomeUserText').innerText = `Authorized Client: ${users[email].name} (${email})`;
+                }, 1000);
+            }
         }
 
         function handleLogout() {
