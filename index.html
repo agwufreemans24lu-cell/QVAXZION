@@ -10,6 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- EmailJS SDK for live email notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialized with your EmailJS public key configuration
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+        })();
+    </script>
     <script>
         tailwind.config = {
             theme: {
@@ -53,7 +61,6 @@
             border-color: #D4AF37;
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
-        /* Custom subtle scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0C0F0E; }
         ::-webkit-scrollbar-thumb { background: #273832; border-radius: 3px; }
@@ -65,19 +72,14 @@
     <!-- Top Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-atelier-bg/90 backdrop-blur-md border-b border-atelier-border">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
             <a href="#" class="font-cinzel text-2xl md:text-3xl font-bold tracking-[0.25em] gold-gradient-text">
                 QVAXZION
             </a>
-
-            <!-- Navigation Links -->
             <nav class="hidden md:flex items-center space-x-10 text-xs font-semibold tracking-[0.25em] uppercase text-atelier-goldLight/70">
                 <a href="#manifesto" class="hover:text-atelier-gold transition-colors">Manifesto</a>
                 <a href="#atelier" class="hover:text-atelier-gold transition-colors">Atelier Merch</a>
                 <a href="#vault" class="hover:text-atelier-gold transition-colors">VIP Vault</a>
             </nav>
-
-            <!-- Action Trigger -->
             <a href="#vault" class="px-5 py-2.5 text-xs font-cinzel font-bold tracking-[0.15em] uppercase border border-atelier-gold text-atelier-gold hover:bg-atelier-gold hover:text-atelier-bg transition-all duration-300">
                 Secure Access
             </a>
@@ -86,7 +88,6 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
-        <!-- Ambient Designer Background Watermark & Glow -->
         <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
             <div class="absolute w-[700px] h-[700px] bg-atelier-gold/5 rounded-full blur-[150px]"></div>
             <div class="font-cinzel text-[22vw] font-black text-atelier-border/15 tracking-tighter select-none uppercase">QX</div>
@@ -183,7 +184,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Item 1 -->
                 <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
                     <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent opacity-60"></div>
@@ -197,7 +197,6 @@
                         <p class="text-xs text-atelier-goldLight/60 font-light">Structured heavy wool silhouette featuring laser-etched custom hardware.</p>
                     </div>
                 </div>
-                <!-- Item 2 -->
                 <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
                     <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent opacity-60"></div>
@@ -211,7 +210,6 @@
                         <p class="text-xs text-atelier-goldLight/60 font-light">Heavyweight loopback cotton with metallic tonal QVAXZION embroidery.</p>
                     </div>
                 </div>
-                <!-- Item 3 -->
                 <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
                     <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent opacity-60"></div>
@@ -229,7 +227,7 @@
         </div>
     </section>
 
-    <!-- SECURED VIP / PRIVATE VAULT SECTION WITH REAL ACCOUNT LOGIN -->
+    <!-- SECURED VIP / PRIVATE VAULT SECTION WITH INTENT QUESTIONNAIRE & EMAIL ALERTS -->
     <section id="vault" class="py-32 px-6 bg-atelier-surface border-t border-atelier-border relative">
         <div class="max-w-xl mx-auto">
             <div class="text-center mb-12">
@@ -238,7 +236,7 @@
                 </span>
                 <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Restricted Membership</p>
                 <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white">The VIP Vault Portal</h2>
-                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Create a verified account or sign in with registered credentials to access private collection drops.</p>
+                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Register your credentials and share your focus to gain clearance for private collection drops.</p>
             </div>
 
             <!-- Authentication Box -->
@@ -253,17 +251,33 @@
                 <form id="vaultForm" onsubmit="handleAuth(event)" class="space-y-6">
                     <div id="nameFieldContainer" class="hidden">
                         <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Full Legal Name / Alias</label>
-                        <input type="text" id="fullName" placeholder="Enter full name" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none gold-transition rounded-none">
+                        <input type="text" id="fullName" placeholder="Enter full name" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
                     </div>
 
                     <div>
                         <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Registered Email Address</label>
-                        <input type="email" id="emailInput" required placeholder="client@qvaxzion.com" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none gold-transition rounded-none">
+                        <input type="email" id="emailInput" required placeholder="client@qvaxzion.com" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
                     </div>
 
                     <div>
                         <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Vault Passcode (Min. 6 Characters)</label>
-                        <input type="password" id="passwordInput" required placeholder="••••••••••••" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none gold-transition rounded-none">
+                        <input type="password" id="passwordInput" required placeholder="••••••••••••" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                    </div>
+
+                    <!-- Intent & Interest Questionnaire (Visible on Register) -->
+                    <div id="intentFieldContainer" class="hidden space-y-4 pt-2 border-t border-atelier-border">
+                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight">Primary Intention & Focus Area</label>
+                        <select id="userIntent" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                            <option value="Series 01 Capsule Allocation">Series 01 Capsule & Merch Allocation</option>
+                            <option value="Private Digital Runway & Exhibitions">Private Digital Runway & Exhibitions</option>
+                            <option value="Custom Architectural Commission">Custom Architectural Commission</option>
+                            <option value="General Collector & Patron">General Collector & Patron Network</option>
+                        </select>
+
+                        <div>
+                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Describe Your Vision / Background</label>
+                            <textarea id="userNotes" rows="3" placeholder="Share what brings you to QVAXZION..." class="w-full bg-atelier-bg border border-atelier-border px-4 py-3 text-sm text-white focus:outline-none rounded-none"></textarea>
+                        </div>
                     </div>
 
                     <div id="authFeedback" class="text-xs text-center hidden"></div>
@@ -301,7 +315,7 @@
         </div>
     </footer>
 
-    <!-- Strict Account Database & Authentication Script -->
+    <!-- Strict Authentication & Live Email Notification Script -->
     <script>
         let currentMode = 'login';
 
@@ -310,6 +324,7 @@
             const loginBtn = document.getElementById('loginTabBtn');
             const registerBtn = document.getElementById('registerTabBtn');
             const nameField = document.getElementById('nameFieldContainer');
+            const intentField = document.getElementById('intentFieldContainer');
             const submitBtn = document.getElementById('submitBtn');
             const feedback = document.getElementById('authFeedback');
 
@@ -319,12 +334,14 @@
                 loginBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-gold border-b-2 border-atelier-gold transition-all";
                 registerBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-goldLight/40 hover:text-atelier-gold transition-all";
                 nameField.classList.add('hidden');
+                intentField.classList.add('hidden');
                 submitBtn.innerText = "Authenticate Identity";
             } else {
                 registerBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-gold border-b-2 border-atelier-gold transition-all";
                 loginBtn.className = "flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-goldLight/40 hover:text-atelier-gold transition-all";
                 nameField.classList.remove('hidden');
-                submitBtn.innerText = "Register Account";
+                intentField.classList.remove('hidden');
+                submitBtn.innerText = "Register Account & Apply";
             }
         }
 
@@ -333,6 +350,8 @@
             const email = document.getElementById('emailInput').value.trim().toLowerCase();
             const password = document.getElementById('passwordInput').value;
             const fullName = document.getElementById('fullName').value.trim();
+            const intent = document.getElementById('userIntent').value;
+            const notes = document.getElementById('userNotes').value.trim();
             const feedback = document.getElementById('authFeedback');
 
             if (password.length < 6) {
@@ -342,7 +361,6 @@
                 return;
             }
 
-            // Retrieve local user database
             let users = JSON.parse(localStorage.getItem('qvaxzion_vault_users') || '{}');
 
             if (currentMode === 'register') {
@@ -359,13 +377,29 @@
                     return;
                 }
 
-                // Register user
-                users[email] = { password: password, name: fullName };
+                // Register user locally
+                users[email] = { password: password, name: fullName, intent: intent, notes: notes };
                 localStorage.setItem('qvaxzion_vault_users', JSON.stringify(users));
 
-                feedback.innerText = "Account registered successfully. Initializing vault session...";
+                feedback.innerText = "Submitting credentials & dispatching secure notice...";
                 feedback.className = "text-xs text-atelier-gold text-center animate-pulse";
                 feedback.classList.remove('hidden');
+
+                // Send Email Notification to You via EmailJS
+                const templateParams = {
+                    client_name: fullName,
+                    client_email: email,
+                    client_intent: intent,
+                    client_notes: notes || 'None provided'
+                };
+
+                // Active EmailJS call integration
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
 
                 setTimeout(() => {
                     document.getElementById('authContainer').classList.add('hidden');
@@ -376,7 +410,7 @@
             } else {
                 // Login check
                 if (!users[email] || users[email].password !== password) {
-                    feedback.innerText = "Access Denied: Unrecognized credentials or incorrect password. Please create an account first.";
+                    feedback.innerText = "Access Denied: Unrecognized credentials. Please create an account first.";
                     feedback.className = "text-xs text-red-400 text-center";
                     feedback.classList.remove('hidden');
                     return;
