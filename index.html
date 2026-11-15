@@ -58,34 +58,38 @@
             border-color: #D4AF37;
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
-        .page-view { display: none; }
-        .page-view.active { display: block; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0C0F0E; }
         ::-webkit-scrollbar-thumb { background: #273832; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+        .view-section { display: none; }
+        .view-section.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-atelier-bg text-atelier-goldLight antialiased selection:bg-atelier-gold selection:text-atelier-bg">
 
-    <!-- Top Navigation Bar with Multi-Page Tab Switching -->
+    <!-- Top Navigation Bar with Multi-View Tabs -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-atelier-bg/95 backdrop-blur-md border-b border-atelier-border">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onclick="switchPage('welcome')" class="font-cinzel text-2xl md:text-3xl font-bold tracking-[0.25em] gold-gradient-text cursor-pointer">
+            <a href="#" onclick="switchView('home')" class="font-cinzel text-2xl md:text-3xl font-bold tracking-[0.25em] gold-gradient-text cursor-pointer">
                 QVAXZION
             </a>
+            
             <!-- Desktop Navigation Tabs -->
-            <nav class="hidden xl:flex items-center space-x-6 text-[11px] font-semibold tracking-[0.2em] uppercase text-atelier-goldLight/70">
-                <button onclick="switchPage('welcome')" id="nav-welcome" class="nav-btn text-atelier-gold transition-colors">Main</button>
-                <button onclick="switchPage('atelier')" id="nav-atelier" class="nav-btn hover:text-atelier-gold transition-colors">Atelier</button>
-                <button onclick="switchPage('gallery')" id="nav-gallery" class="nav-btn hover:text-atelier-gold transition-colors">Completed Gallery</button>
-                <button onclick="switchPage('footwear')" id="nav-footwear" class="nav-btn hover:text-atelier-gold transition-colors">Boots & Shoes</button>
-                <button onclick="switchPage('reels')" id="nav-reels" class="nav-btn hover:text-atelier-gold transition-colors">Motion Reels</button>
-                <button onclick="switchPage('booking')" id="nav-booking" class="nav-btn hover:text-atelier-gold transition-colors">Private Fitting</button>
-                <button onclick="switchPage('vault')" id="nav-vault" class="nav-btn hover:text-atelier-gold transition-colors">VIP Vault</button>
+            <nav class="hidden xl:flex items-center space-x-6 text-xs font-semibold tracking-[0.2em] uppercase text-atelier-goldLight/70">
+                <button onclick="switchView('home')" id="nav-home" class="nav-link text-atelier-gold transition-colors">Home</button>
+                <button onclick="switchView('meaning')" id="nav-meaning" class="nav-link hover:text-atelier-gold transition-colors">The Meaning</button>
+                <button onclick="switchView('machine')" id="nav-machine" class="nav-link hover:text-atelier-gold transition-colors">Designing Machine</button>
+                <button onclick="switchView('collections')" id="nav-collections" class="nav-link hover:text-atelier-gold transition-colors">Collections</button>
+                <button onclick="switchView('footwear')" id="nav-footwear" class="nav-link hover:text-atelier-gold transition-colors">1-of-1 Footwear</button>
+                <button onclick="switchView('gallery')" id="nav-gallery" class="nav-link hover:text-atelier-gold transition-colors">Completed Gallery</button>
+                <button onclick="switchView('booking')" id="nav-booking" class="nav-link hover:text-atelier-gold transition-colors">Private Fitting</button>
+                <button onclick="switchView('vault')" id="nav-vault" class="nav-link hover:text-atelier-gold transition-colors">VIP Vault</button>
             </nav>
+
             <div class="flex items-center space-x-4">
-                <button onclick="switchPage('booking')" class="hidden sm:inline-block px-5 py-2.5 text-xs font-cinzel font-bold tracking-[0.15em] uppercase border border-atelier-gold text-atelier-gold hover:bg-atelier-gold hover:text-atelier-bg transition-all duration-300">
+                <button onclick="switchView('booking')" class="hidden sm:inline-block px-5 py-2.5 text-xs font-cinzel font-bold tracking-[0.15em] uppercase border border-atelier-gold text-atelier-gold hover:bg-atelier-gold hover:text-atelier-bg transition-all duration-300">
                     Book Fitting
                 </button>
                 <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-atelier-gold border border-atelier-border">
@@ -93,502 +97,599 @@
                 </button>
             </div>
         </div>
+
         <!-- Mobile Navigation Drawer -->
         <div id="mobileMenu" class="hidden xl:hidden bg-atelier-surface border-b border-atelier-border px-6 py-6 space-y-4">
-            <button onclick="switchPage('welcome'); toggleMobileMenu()" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold w-full text-left">01. Main Welcome</button>
-            <button onclick="switchPage('atelier'); toggleMobileMenu()" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold w-full text-left">02. Inside The Atelier</button>
-            <button onclick="switchPage('gallery'); toggleMobileMenu()" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold w-full text-left">03. Completed Jobs Gallery</button>
-            <button onclick="switchPage('footwear'); toggleMobileMenu()" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold w-full text-left">04. Boots & Footwear Vault</button>
-            <button onclick="switchPage('reels'); toggleMobileMenu()" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold w-full text-left">05. Runway & Studio Reels</button>
-            <button onclick="switchPage('booking'); toggleMobileMenu()" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold w-full text-left">06. Private Fitting</button>
-            <button onclick="switchPage('vault'); toggleMobileMenu()" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-gold font-bold w-full text-left">07. Enter VIP Vault</button>
+            <button onclick="switchView('home'); toggleMobileMenu();" class="block w-text-left text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">01. Welcome Home</button>
+            <button onclick="switchView('meaning'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">02. The QVAXZION Meaning</button>
+            <button onclick="switchView('machine'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">03. Designing Machine & Atelier</button>
+            <button onclick="switchView('collections'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">04. Capsule Collections</button>
+            <button onclick="switchView('footwear'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">05. 1-of-1 Footwear & Boots</button>
+            <button onclick="switchView('gallery'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">06. Completed Jobs Gallery</button>
+            <button onclick="switchView('booking'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">07. Private Fitting</button>
+            <button onclick="switchView('vault'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-gold font-bold">08. VIP Vault Portal</button>
         </div>
     </header>
 
-    <!-- ================= PAGE 1: WELCOME / MAIN PAGE ================= -->
-    <div id="page-welcome" class="page-view active pt-20">
-        <!-- Cinematic Hero Section -->
-        <section class="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
-            <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
-                <div class="absolute w-[800px] h-[800px] bg-atelier-gold/5 rounded-full blur-[160px]"></div>
-                <div class="font-cinzel text-[24vw] font-black text-atelier-border/15 tracking-tighter select-none uppercase">QX</div>
-            </div>
+    <!-- MAIN CONTENT CONTAINER (Multi-View Router) -->
+    <main class="pt-20">
 
-            <div class="max-w-5xl mx-auto text-center relative z-10 py-20">
-                <p class="text-xs md:text-sm font-cinzel tracking-[0.4em] text-atelier-gold uppercase mb-4">
-                    Digital Avant-Garde Haute Couture
-                </p>
-                <h1 class="font-cinzel text-5xl md:text-8xl font-black tracking-[0.12em] text-white mb-6">
-                    QVAXZION
-                </h1>
-                <p class="font-cinzel text-lg md:text-xl tracking-[0.3em] text-atelier-goldMuted uppercase mb-8">
-                    /kwah-ZEE-on/
-                </p>
-                <p class="max-w-2xl mx-auto text-sm md:text-base text-atelier-goldLight/70 font-light leading-relaxed mb-10">
-                    A pristine digital sanctuary operating outside traditional timelines. Zero history. Total autonomy. Pure architectural execution engineered for the modern elite.
-                </p>
-
-                <!-- Brand Metrics Strip -->
-                <div class="grid grid-cols-3 max-w-xl mx-auto border-y border-atelier-border py-5 mb-12">
-                    <div>
-                        <span class="font-cinzel text-xl md:text-2xl font-bold text-white block">1-OF-1</span>
-                        <span class="text-[10px] tracking-[0.2em] uppercase text-atelier-gold">Bespoke Pieces</span>
-                    </div>
-                    <div class="border-x border-atelier-border">
-                        <span class="font-cinzel text-xl md:text-2xl font-bold text-white block">3 ATELIERS</span>
-                        <span class="text-[10px] tracking-[0.2em] uppercase text-atelier-gold">Global Presence</span>
-                    </div>
-                    <div>
-                        <span class="font-cinzel text-xl md:text-2xl font-bold text-white block">SERIES 01</span>
-                        <span class="text-[10px] tracking-[0.2em] uppercase text-atelier-gold">Active Drop</span>
-                    </div>
+        <!-- ================= VIEW 1: HOME (WELCOME PAGE) ================= -->
+        <section id="view-home" class="view-section active">
+            <!-- Cinematic Hero Section -->
+            <div class="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
+                <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+                    <div class="absolute w-[800px] h-[800px] bg-atelier-gold/5 rounded-full blur-[160px]"></div>
+                    <div class="font-cinzel text-[24vw] font-black text-atelier-border/15 tracking-tighter select-none uppercase">QX</div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                    <button onclick="switchPage('gallery')" class="w-full sm:w-auto px-8 py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-2xl">
-                        Explore Completed Gallery
-                    </button>
-                    <button onclick="switchPage('footwear')" class="w-full sm:w-auto px-8 py-4 border border-atelier-border text-atelier-goldLight font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:border-atelier-gold transition-all duration-300">
-                        View Boots & Footwear
-                    </button>
+                <div class="max-w-5xl mx-auto text-center relative z-10">
+                    <p class="text-xs md:text-sm font-cinzel tracking-[0.4em] text-atelier-gold uppercase mb-4">
+                        Digital Avant-Garde Haute Couture
+                    </p>
+                    <h1 class="font-cinzel text-5xl md:text-8xl font-black tracking-[0.12em] text-white mb-6">
+                        QVAXZION
+                    </h1>
+                    <p class="font-cinzel text-lg md:text-xl tracking-[0.3em] text-atelier-goldMuted uppercase mb-8">
+                        /kwah-ZEE-on/
+                    </p>
+                    <p class="max-w-2xl mx-auto text-sm md:text-base text-atelier-goldLight/70 font-light leading-relaxed mb-10">
+                        A pristine digital sanctuary operating outside traditional timelines. Zero history. Total autonomy. Pure architectural execution engineered for the modern elite.
+                    </p>
+
+                    <!-- Metrics Strip -->
+                    <div class="grid grid-cols-3 max-w-xl mx-auto border-y border-atelier-border py-5 mb-12">
+                        <div>
+                            <span class="font-cinzel text-xl md:text-2xl font-bold text-white block">1-OF-1</span>
+                            <span class="text-[10px] tracking-[0.2em] uppercase text-atelier-gold">Bespoke Craft</span>
+                        </div>
+                        <div class="border-x border-atelier-border">
+                            <span class="font-cinzel text-xl md:text-2xl font-bold text-white block">3 ATELIERS</span>
+                            <span class="text-[10px] tracking-[0.2em] uppercase text-atelier-gold">Global Presence</span>
+                        </div>
+                        <div>
+                            <span class="font-cinzel text-xl md:text-2xl font-bold text-white block">SERIES 01</span>
+                            <span class="text-[10px] tracking-[0.2em] uppercase text-atelier-gold">Active Drop</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                        <button onclick="switchView('meaning')" class="w-full sm:w-auto px-8 py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-2xl">
+                            Discover The Meaning
+                        </button>
+                        <button onclick="switchView('gallery')" class="w-full sm:w-auto px-8 py-4 border border-atelier-border text-atelier-goldLight font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:border-atelier-gold transition-all duration-300">
+                            Explore Completed Gallery
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Showcase Hub (Grid leading to other pages) -->
+            <section class="py-24 px-6 bg-atelier-surface border-t border-atelier-border">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Architectural Navigation</p>
+                        <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white">Explore The Sanctuaries</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div onclick="switchView('machine')" class="group cursor-pointer p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all">
+                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-3">01 / Technology & Craft</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white mb-3">The Designing Machine</h3>
+                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-6">Inspect our heavy-duty industrial machinery, precision laser cutters, and pattern drafting systems.</p>
+                            <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">Enter Machine Lab →</span>
+                        </div>
+
+                        <div onclick="switchView('footwear')" class="group cursor-pointer p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all">
+                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-3">02 / Rare Archive</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white mb-3">1-of-1 Footwear & Boots</h3>
+                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-6">Discover untouched architectural combat boots, metallic dress shoes, and handcrafted leather footwear.</p>
+                            <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">Inspect Footwear Vault →</span>
+                        </div>
+
+                        <div onclick="switchView('gallery')" class="group cursor-pointer p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all">
+                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-3">03 / Proven Excellence</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white mb-3">Completed Jobs Gallery</h3>
+                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-6">Browse real delivered bespoke client projects, editorial garments, and custom runway looks.</p>
+                            <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">View Completed Work →</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!-- ================= VIEW 2: THE MEANING (STANDOUT BRAND STORY) ================= -->
+        <section id="view-meaning" class="view-section py-28 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-20">
+                    <p class="text-xs font-cinzel tracking-[0.4em] text-atelier-gold uppercase mb-3">The Anatomy of a Name</p>
+                    <h2 class="font-cinzel text-4xl md:text-6xl font-bold tracking-widest text-white gold-gradient-text mb-6">Q V A X Z I O N</h2>
+                    <p class="text-sm text-atelier-goldLight/70 font-light">Every single letter represents an unyielding pillar of absolute high luxury and technical sovereignty.</p>
+                    <div class="w-20 h-[1px] bg-atelier-gold mx-auto mt-6"></div>
+                </div>
+
+                <!-- 8 Detailed Meaning Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">Q</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Quality</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Uncompromising material integrity. Sourcing only world-class heavyweight wools, French terry, and technical silk twills.</p>
+                    </div>
+
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">V</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Vision</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Defining tomorrow's silhouettes before mainstream retail adopts them. Pure futuristic aesthetic mapping.</p>
+                    </div>
+
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">A</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Autonomy</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Operating independently from mass-market trends, retail calendars, or external corporate pressures.</p>
+                    </div>
+
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">X</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Variable</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">The mark of individual signature. Unmapped creative expressions designed for collectors who reject conformity.</p>
+                    </div>
+
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">Z</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Zero</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">A pristine, blank canvas untouched by historical baggage, clutter, or compromised production methods.</p>
+                    </div>
+
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">I</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Innovation</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Sculptural precision rendered through advanced code architecture, digital tooling, and laser fabrication.</p>
+                    </div>
+
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">O</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Originality</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Zero imitation. Total structural purity and exclusive standalone ownership of creative space.</p>
+                    </div>
+
+                    <div class="p-8 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="font-cinzel text-3xl font-bold gold-gradient-text">N</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Nobility</h3>
+                        </div>
+                        <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">The refined, quiet elegance characteristic of absolute high luxury heritage and timeless craftsmanship.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Manifesto 8 Pillars Preview -->
-        <section class="py-24 px-6 bg-atelier-surface border-t border-atelier-border">
+
+        <!-- ================= VIEW 3: DESIGNING MACHINE & ATELIER TECH ================= -->
+        <section id="view-machine" class="view-section py-28 px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">The Architectural Standard</p>
-                    <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">The Manifesto</h2>
+                <div class="text-center max-w-2xl mx-auto mb-20">
+                    <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Industrial Precision</p>
+                    <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">The Designing Machine Lab</h2>
                     <div class="w-16 h-[1px] bg-atelier-gold mx-auto mt-6"></div>
+                    <p class="text-xs text-atelier-goldLight/60 mt-4">Where heavy-duty industrial machinery meets digital avant-garde pattern drafting.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="p-6 bg-atelier-card border border-atelier-border">
-                        <span class="font-cinzel text-3xl font-bold gold-gradient-text block mb-3">Q</span>
-                        <h3 class="font-cinzel text-base text-white font-semibold mb-1">Quality</h3>
-                        <p class="text-xs text-atelier-goldLight/60">Uncompromising material integrity across every thread.</p>
+
+                <!-- Designing Machine Visual Showcase Box -->
+                <div class="bg-atelier-surface border border-atelier-border p-8 md:p-12 mb-16 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-atelier-gold/5 pointer-events-none"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
+                        <div>
+                            <span class="text-xs font-cinzel tracking-[0.25em] text-atelier-gold uppercase block mb-2">SYSTEM 01 / INDUSTRIAL FABRICATION</span>
+                            <h3 class="font-cinzel text-2xl md:text-3xl font-bold text-white mb-6">Automated Laser Cutting & Heavy-Duty Stitching</h3>
+                            <p class="text-xs text-atelier-goldLight/80 font-light leading-relaxed mb-6">
+                                Our bespoke studio relies on custom-calibrated multi-axis cutting machines and heavy-duty walking foot sewing units. This machinery allows us to achieve millimeter-perfect panel alignment across heavyweight wools and rigid technical leathers.
+                            </p>
+                            <ul class="space-y-3 text-xs text-atelier-goldLight/70 font-mono">
+                                <li class="flex items-center space-x-2"><span>✦</span><span>High-Torque Needle Penetration for 500GSM+ Fabrics</span></li>
+                                <li class="flex items-center space-x-2"><span>✦</span><span>Sub-Millimeter Laser Pattern Mapping</span></li>
+                                <li class="flex items-center space-x-2"><span>✦</span><span>Pneumatic Hardware Setting Stations</span></li>
+                            </ul>
+                        </div>
+                        <div class="h-80 bg-atelier-card border border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent"></div>
+                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter mb-2">Q-MAC</span>
+                            <p class="text-xs font-cinzel text-atelier-gold tracking-widest uppercase">Industrial CNC & Sewing Rig</p>
+                            <p class="text-[10px] text-atelier-goldLight/50 mt-2">Operational Status: Online & Calibrated</p>
+                        </div>
                     </div>
-                    <div class="p-6 bg-atelier-card border border-atelier-border">
-                        <span class="font-cinzel text-3xl font-bold gold-gradient-text block mb-3">V</span>
-                        <h3 class="font-cinzel text-base text-white font-semibold mb-1">Vision</h3>
-                        <p class="text-xs text-atelier-goldLight/60">Defining tomorrow's silhouettes before mainstream adoption.</p>
+                </div>
+
+                <!-- 3 Pillars of Atelier Workflow -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 bg-atelier-card border border-atelier-border">
+                        <span class="font-cinzel text-xs text-atelier-gold tracking-widest block mb-2">STAGE 01</span>
+                        <h4 class="font-cinzel text-lg font-bold text-white mb-3">Pattern Architecture</h4>
+                        <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Digital vector blueprints translated into physical muslin mockups before final fabric execution.</p>
                     </div>
-                    <div class="p-6 bg-atelier-card border border-atelier-border">
-                        <span class="font-cinzel text-3xl font-bold gold-gradient-text block mb-3">A</span>
-                        <h3 class="font-cinzel text-base text-white font-semibold mb-1">Autonomy</h3>
-                        <p class="text-xs text-atelier-goldLight/60">Operating outside seasonal retail and mass limits.</p>
+                    <div class="p-8 bg-atelier-card border border-atelier-border">
+                        <span class="font-cinzel text-xs text-atelier-gold tracking-widest block mb-2">STAGE 02</span>
+                        <h4 class="font-cinzel text-lg font-bold text-white mb-3">Mechanical Assembly</h4>
+                        <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Reinforced double-needle lockstitching and precision edge-finishing on industrial rigs.</p>
                     </div>
-                    <div class="p-6 bg-atelier-card border border-atelier-border">
-                        <span class="font-cinzel text-3xl font-bold gold-gradient-text block mb-3">X</span>
-                        <h3 class="font-cinzel text-base text-white font-semibold mb-1">Variable</h3>
-                        <p class="text-xs text-atelier-goldLight/60">Absolute mark of unmapped creative expression.</p>
+                    <div class="p-8 bg-atelier-card border border-atelier-border">
+                        <span class="font-cinzel text-xs text-atelier-gold tracking-widest block mb-2">STAGE 03</span>
+                        <h4 class="font-cinzel text-lg font-bold text-white mb-3">Hardware Integration</h4>
+                        <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Pneumatic press application of laser-engraved titanium eyelets, snaps, and zippers.</p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- ================= PAGE 2: ATELIER SANCTUARY ================= -->
-    <div id="page-atelier" class="page-view pt-28 pb-28 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Our Creative Sanctuary</p>
-                <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">Inside The Atelier</h2>
-                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Lagos · Paris · Tokyo — Where 1-of-1 pieces are crafted.</p>
-                <div class="w-16 h-[1px] bg-atelier-gold mx-auto mt-6"></div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div onclick="openLightbox('Pattern Drafting Sanctuary', '01 / WORKSPACE', 'Our master pattern cutters construct custom architectural silhouettes from raw heavyweight textiles, mapping every seam by hand before cutting.')" class="group cursor-pointer bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
-                    <div class="h-72 bg-gradient-to-br from-atelier-card to-atelier-bg flex flex-col items-center justify-center p-6 text-center border-b border-atelier-border relative">
-                        <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-2 uppercase">01 / Workspace</span>
-                        <h3 class="font-cinzel text-xl font-bold text-white tracking-widest">Pattern Architecture</h3>
-                        <span class="mt-4 text-[10px] tracking-widest uppercase text-atelier-goldLight/50 group-hover:text-atelier-gold transition-colors">[ Inspect Studio → ]</span>
+        <!-- ================= VIEW 4: CAPSULE COLLECTIONS ================= -->
+        <section id="view-collections" class="view-section py-28 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                    <div>
+                        <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Limited Allocation</p>
+                        <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">Capsule Collections</h2>
                     </div>
-                    <div class="p-6">
-                        <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Precision drafting tables where raw organic fabrics meet geometric streetwear silhouettes.</p>
-                    </div>
+                    <p class="text-xs text-atelier-goldLight/50 tracking-widest uppercase mt-4 md:mt-0 font-cinzel">Series 01 Active</p>
                 </div>
 
-                <div onclick="openLightbox('Bespoke Tailoring & Hardware Lab', '02 / CRAFTSMANSHIP', 'Every QVAXZION garment is assembled with reinforced double-needle stitching and fitted with custom laser-etched metallic hardware.')" class="group cursor-pointer bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
-                    <div class="h-72 bg-gradient-to-br from-atelier-card to-atelier-bg flex flex-col items-center justify-center p-6 text-center border-b border-atelier-border relative">
-                        <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-2 uppercase">02 / Craftsmanship</span>
-                        <h3 class="font-cinzel text-xl font-bold text-white tracking-widest">Stitching & Hardware</h3>
-                        <span class="mt-4 text-[10px] tracking-widest uppercase text-atelier-goldLight/50 group-hover:text-atelier-gold transition-colors">[ Inspect Studio → ]</span>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Hand-finished embroidery and custom-molded metallic hardware engineered for extreme durability.</p>
-                    </div>
-                </div>
-
-                <div onclick="openLightbox('Private Fitting & Styling Lounge', '03 / SHOWROOM', 'An intimate, appointment-only showroom where VIP collectors experience upcoming capsule pieces, custom tailoring, and private styling sessions.')" class="group cursor-pointer bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
-                    <div class="h-72 bg-gradient-to-br from-atelier-card to-atelier-bg flex flex-col items-center justify-center p-6 text-center border-b border-atelier-border relative">
-                        <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-2 uppercase">03 / Showroom</span>
-                        <h3 class="font-cinzel text-xl font-bold text-white tracking-widest">Private Styling Lounge</h3>
-                        <span class="mt-4 text-[10px] tracking-widest uppercase text-atelier-goldLight/50 group-hover:text-atelier-gold transition-colors">[ Inspect Studio → ]</span>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Private consultation suites designed for 1-on-1 garment fittings and collector previews.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================= PAGE 3: COMPLETED GALLERY (DELIVERED JOBS) ================= -->
-    <div id="page-gallery" class="page-view pt-28 pb-28 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Archival Archive</p>
-                <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">Completed & Delivered Jobs</h2>
-                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">A visual log of custom 1-of-1 garments successfully designed, fitted, and handed over to private collectors.</p>
-                <div class="w-16 h-[1px] bg-atelier-gold mx-auto mt-6"></div>
-            </div>
-
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Gallery Item 1 -->
-                <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
-                    <div class="h-80 bg-atelier-card flex flex-col items-center justify-center p-6 text-center relative overflow-hidden border-b border-atelier-border">
-                        <span class="font-cinzel text-5xl font-black text-atelier-border group-hover:text-atelier-gold/20 transition-colors">DELIVERED #01</span>
-                        <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">COMPLETED</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-cinzel text-sm font-bold tracking-widest text-white mb-1">Custom Overcoat — Lagos VIP</h3>
-                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Heavyweight wool structure with custom silver hardware. Hand-delivered in Victoria Island.</p>
-                        <span class="text-[10px] font-cinzel tracking-widest text-atelier-gold uppercase">Status: Delivered & Verified</span>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
-                    <div class="h-80 bg-atelier-card flex flex-col items-center justify-center p-6 text-center relative overflow-hidden border-b border-atelier-border">
-                        <span class="font-cinzel text-5xl font-black text-atelier-border group-hover:text-atelier-gold/20 transition-colors">DELIVERED #02</span>
-                        <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">COMPLETED</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-cinzel text-sm font-bold tracking-widest text-white mb-1">Vanguard Cipher Set — Paris</h3>
-                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">French terry loopback cotton with champagne gold embroidery. Shipped to Le Marais showroom.</p>
-                        <span class="text-[10px] font-cinzel tracking-widest text-atelier-gold uppercase">Status: Delivered & Verified</span>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="group bg-atelier-surface border border-atelier-border overflow-hidden">
-                    <div class="h-80 bg-atelier-card flex flex-col items-center justify-center p-6 text-center relative overflow-hidden border-b border-atelier-border">
-                        <span class="font-cinzel text-5xl font-black text-atelier-border group-hover:text-atelier-gold/20 transition-colors">DELIVERED #03</span>
-                        <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">COMPLETED</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-cinzel text-sm font-bold tracking-widest text-white mb-1">Apex Technical Trousers — Tokyo</h3>
-                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Raw technical silk-twill weave with magnetic belt closures. Handover completed in Shibuya.</p>
-                        <span class="text-[10px] font-cinzel tracking-widest text-atelier-gold uppercase">Status: Delivered & Verified</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================= PAGE 4: SHOE & BOOT VAULT (UNTOUCHED 1-OF-1s) ================= -->
-    <div id="page-footwear" class="page-view pt-28 pb-28 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Series 01 Footwear</p>
-                <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">The Boot & Shoe Vault</h2>
-                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Untouched 1-of-1 avant-garde footwear. Engineered with heavyweight leather, custom structural soles, and metallic hardware.</p>
-                <div class="w-16 h-[1px] bg-atelier-gold mx-auto mt-6"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Shoe 1 -->
-                <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
-                    <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
-                        <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all duration-500">BOOT-01</span>
-                        <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">1-OF-1</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Monolith Combat Boot</h3>
-                            <span class="text-xs text-atelier-gold font-mono">$540</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
+                        <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
+                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">QX-01</span>
+                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">LIMITED</span>
                         </div>
-                        <p class="text-xs text-atelier-goldLight/60 font-light mb-5">Full-grain matte calfskin leather with reinforced steel shank and custom QVAXZION buckle.</p>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button onclick="openProductModal('BOOT-01 Monolith Combat Boot', '$540', 'Full-Grain Matte Calfskin • Steel Reinforced Arch Shank • Goodyear Welted Lug Sole • Numbered 1-of-1 Inner Stamp.')" class="py-3 border border-atelier-border text-[11px] font-cinzel font-bold tracking-widest text-atelier-goldLight hover:border-atelier-gold uppercase transition-all">Specs</button>
-                            <button onclick="selectPieceForBooking('BOOT-01 Monolith Combat Boot ($540)')" class="py-3 bg-atelier-gold text-atelier-bg text-[11px] font-cinzel font-bold tracking-widest hover:bg-atelier-goldLight uppercase transition-all">Reserve</button>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Monolith Overcoat</h3>
+                                <span class="text-xs text-atelier-gold font-mono">$480</span>
+                            </div>
+                            <p class="text-xs text-atelier-goldLight/60 font-light mb-5">Structured heavy wool silhouette featuring laser-etched custom hardware.</p>
+                            <button onclick="switchView('booking')" class="w-full py-3 bg-atelier-gold text-atelier-bg text-[11px] font-cinzel font-bold tracking-widest hover:bg-atelier-goldLight uppercase transition-all">Reserve Piece</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Shoe 2 -->
-                <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
-                    <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
-                        <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all duration-500">BOOT-02</span>
-                        <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">1-OF-1</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Vanguard Cipher Chelsea</h3>
-                            <span class="text-xs text-atelier-gold font-mono">$460</span>
+                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
+                        <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
+                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">QX-02</span>
+                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">CAPSULE</span>
                         </div>
-                        <p class="text-xs text-atelier-goldLight/60 font-light mb-5">Waxed suede upper with architectural elastic gussets and brushed champagne hardware.</p>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button onclick="openProductModal('BOOT-02 Vanguard Cipher Chelsea', '$460', 'Hand-Waxed Italian Suede • Reinforced Elastic Side Panels • Stacked Leather Heel with Rubber Tap • Custom Hardware.')" class="py-3 border border-atelier-border text-[11px] font-cinzel font-bold tracking-widest text-atelier-goldLight hover:border-atelier-gold uppercase transition-all">Specs</button>
-                            <button onclick="selectPieceForBooking('BOOT-02 Vanguard Cipher Chelsea ($460)')" class="py-3 bg-atelier-gold text-atelier-bg text-[11px] font-cinzel font-bold tracking-widest hover:bg-atelier-goldLight uppercase transition-all">Reserve</button>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Vanguard Cipher Hoodie</h3>
+                                <span class="text-xs text-atelier-gold font-mono">$250</span>
+                            </div>
+                            <p class="text-xs text-atelier-goldLight/60 font-light mb-5">Heavyweight loopback cotton with metallic tonal QVAXZION embroidery.</p>
+                            <button onclick="switchView('booking')" class="w-full py-3 bg-atelier-gold text-atelier-bg text-[11px] font-cinzel font-bold tracking-widest hover:bg-atelier-goldLight uppercase transition-all">Reserve Piece</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Shoe 3 -->
-                <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
-                    <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
-                        <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all duration-500">BOOT-03</span>
-                        <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">1-OF-1</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Apex Technical Runner</h3>
-                            <span class="text-xs text-atelier-gold font-mono">$390</span>
+                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
+                        <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
+                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">QX-03</span>
+                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">ARCHIVAL</span>
                         </div>
-                        <p class="text-xs text-atelier-goldLight/60 font-light mb-5">Technical mesh and tumbled leather paneled sneaker with sculpted architectural sole.</p>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button onclick="openProductModal('BOOT-03 Apex Technical Runner', '$390', 'Ballistic Mesh & Tumbled Leather Upper • Dual-Density Cushion Midsole • Reflective Cord Lacing System.')" class="py-3 border border-atelier-border text-[11px] font-cinzel font-bold tracking-widest text-atelier-goldLight hover:border-atelier-gold uppercase transition-all">Specs</button>
-                            <button onclick="selectPieceForBooking('BOOT-03 Apex Technical Runner ($390)')" class="py-3 bg-atelier-gold text-atelier-bg text-[11px] font-cinzel font-bold tracking-widest hover:bg-atelier-goldLight uppercase transition-all">Reserve</button>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-cinzel text-sm font-bold tracking-widest text-white">Apex Silk Trousers</h3>
+                                <span class="text-xs text-atelier-gold font-mono">$320</span>
+                            </div>
+                            <p class="text-xs text-atelier-goldLight/60 font-light mb-5">High-waist architectural pleating designed with raw technical twill.</p>
+                            <button onclick="switchView('booking')" class="w-full py-3 bg-atelier-gold text-atelier-bg text-[11px] font-cinzel font-bold tracking-widest hover:bg-atelier-goldLight uppercase transition-all">Reserve Piece</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- ================= PAGE 5: MOTION REELS ================= -->
-    <div id="page-reels" class="page-view pt-28 pb-28 px-6 bg-atelier-surface">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Design Process & Motion</p>
-                <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">Runway & Studio Reels</h2>
-                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Watch behind-the-scenes cutting, footwear construction, and model fittings.</p>
-                <div class="w-16 h-[1px] bg-atelier-gold mx-auto mt-6"></div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div onclick="openVideoModal('Behind The Seams: Garment Construction', 'Upload your sewing/cutting .mp4 file to assets/ and reference it here.')" class="bg-atelier-card border border-atelier-border p-4 cursor-pointer group">
-                    <div class="h-80 bg-atelier-bg border border-atelier-border flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute z-10 w-16 h-16 rounded-full bg-atelier-gold/20 border border-atelier-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6 text-atelier-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <!-- ================= VIEW 5: 1-OF-1 FOOTWEAR & BOOTS VAULT ================= -->
+        <section id="view-footwear" class="view-section py-28 px-6 bg-atelier-surface border-t border-atelier-border">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                    <div>
+                        <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Untouched Archive</p>
+                        <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">1-of-1 Footwear & Boots</h2>
+                    </div>
+                    <p class="text-xs text-atelier-goldLight/50 tracking-widest uppercase mt-4 md:mt-0 font-cinzel">Exclusive Custom Pairs</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-atelier-card border border-atelier-border p-6 relative group">
+                        <div class="h-72 bg-atelier-bg border border-atelier-border flex items-center justify-center mb-6 relative overflow-hidden">
+                            <span class="font-cinzel text-5xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">BOOT-01</span>
+                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
                         </div>
-                        <span class="absolute bottom-6 left-6 font-cinzel text-xs tracking-widest text-white uppercase z-10">01 / Garment Construction</span>
+                        <h3 class="font-cinzel text-base font-bold text-white tracking-wider mb-2">Vanguard Combat Boot</h3>
+                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Full-grain matte calfskin leather with reinforced steel toe capping and titanium side-zip architecture.</p>
+                        <div class="flex justify-between items-center pt-4 border-t border-atelier-border">
+                            <span class="text-xs font-mono text-atelier-gold">$650</span>
+                            <button onclick="switchView('booking')" class="px-4 py-2 bg-atelier-gold text-atelier-bg text-[10px] font-cinzel font-bold tracking-widest uppercase">Reserve Pair</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-atelier-card border border-atelier-border p-6 relative group">
+                        <div class="h-72 bg-atelier-bg border border-atelier-border flex items-center justify-center mb-6 relative overflow-hidden">
+                            <span class="font-cinzel text-5xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">BOOT-02</span>
+                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
+                        </div>
+                        <h3 class="font-cinzel text-base font-bold text-white tracking-wider mb-2">Monolith Platform Derby</h3>
+                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Sculptural stacked leather sole with Goodyear welt construction and brushed gold eyelet hardware.</p>
+                        <div class="flex justify-between items-center pt-4 border-t border-atelier-border">
+                            <span class="text-xs font-mono text-atelier-gold">$590</span>
+                            <button onclick="switchView('booking')" class="px-4 py-2 bg-atelier-gold text-atelier-bg text-[10px] font-cinzel font-bold tracking-widest uppercase">Reserve Pair</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-atelier-card border border-atelier-border p-6 relative group">
+                        <div class="h-72 bg-atelier-bg border border-atelier-border flex items-center justify-center mb-6 relative overflow-hidden">
+                            <span class="font-cinzel text-5xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">BOOT-03</span>
+                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
+                        </div>
+                        <h3 class="font-cinzel text-base font-bold text-white tracking-wider mb-2">Cipher Tactical Sneaker-Boot</h3>
+                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">High-top architectural silhouette featuring technical ballistic nylon and magnetic FIDLOCK strap closures.</p>
+                        <div class="flex justify-between items-center pt-4 border-t border-atelier-border">
+                            <span class="text-xs font-mono text-atelier-gold">$520</span>
+                            <button onclick="switchView('booking')" class="px-4 py-2 bg-atelier-gold text-atelier-bg text-[10px] font-cinzel font-bold tracking-widest uppercase">Reserve Pair</button>
+                        </div>
                     </div>
                 </div>
-                <div onclick="openVideoModal('Footwear Assembly & Soling Lab', 'Upload your boot/shoe making .mp4 file to assets/ and reference it here.')" class="bg-atelier-card border border-atelier-border p-4 cursor-pointer group">
-                    <div class="h-80 bg-atelier-bg border border-atelier-border flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute z-10 w-16 h-16 rounded-full bg-atelier-gold/20 border border-atelier-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6 text-atelier-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <span class="absolute bottom-6 left-6 font-cinzel text-xs tracking-widest text-white uppercase z-10">02 / Footwear & Boot Soling</span>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 6: COMPLETED JOBS GALLERY ================= -->
+        <section id="view-gallery" class="view-section py-28 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                    <div>
+                        <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-3">Proven Execution</p>
+                        <h2 class="font-cinzel text-3xl md:text-5xl font-bold tracking-wider text-white">Completed Jobs Gallery</h2>
                     </div>
+                    <p class="text-xs text-atelier-goldLight/50 tracking-widest uppercase mt-4 md:mt-0 font-cinzel">Delivered Bespoke Works</p>
                 </div>
-                <div onclick="openVideoModal('Editorial Lookbook: Models In Motion', 'Upload your model runway .mp4 file to assets/ and reference it here.')" class="bg-atelier-card border border-atelier-border p-4 cursor-pointer group">
-                    <div class="h-80 bg-atelier-bg border border-atelier-border flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute z-10 w-16 h-16 rounded-full bg-atelier-gold/20 border border-atelier-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6 text-atelier-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-atelier-surface border border-atelier-border overflow-hidden group">
+                        <div class="h-72 bg-atelier-card border-b border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
+                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-1">CLIENT COMMISSION #01</span>
+                            <h3 class="font-cinzel text-lg font-bold text-white">Bespoke Runway Overcoat</h3>
+                            <span class="mt-3 px-3 py-1 bg-green-950/60 border border-green-800 text-[10px] font-mono text-green-400">DELIVERED · LAGOS ATELIER</span>
                         </div>
-                        <span class="absolute bottom-6 left-6 font-cinzel text-xs tracking-widest text-white uppercase z-10">03 / Runway & Styling</span>
+                        <div class="p-6">
+                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Custom heavy wool overcoat with hand-forged bronze hardware, delivered to a private collector in Victoria Island.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-atelier-surface border border-atelier-border overflow-hidden group">
+                        <div class="h-72 bg-atelier-card border-b border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
+                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-1">CLIENT COMMISSION #02</span>
+                            <h3 class="font-cinzel text-lg font-bold text-white">Architectural Cipher Suit</h3>
+                            <span class="mt-3 px-3 py-1 bg-green-950/60 border border-green-800 text-[10px] font-mono text-green-400">DELIVERED · PARIS SHOWROOM</span>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Double-breasted architectural blazer and pleated trousers crafted for an international music video premiere.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-atelier-surface border border-atelier-border overflow-hidden group">
+                        <div class="h-72 bg-atelier-card border-b border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
+                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-1">CLIENT COMMISSION #03</span>
+                            <h3 class="font-cinzel text-lg font-bold text-white">Series 01 Leather Harness</h3>
+                            <span class="mt-3 px-3 py-1 bg-green-950/60 border border-green-800 text-[10px] font-mono text-green-400">DELIVERED · TOKYO SUITE</span>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Hand-riveted Italian calfskin body harness with custom-molded champagne gold metallic buckles.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- ================= PAGE 6: PRIVATE FITTING RESERVATION ================= -->
-    <div id="page-booking" class="page-view pt-28 pb-28 px-6">
-        <div class="max-w-2xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="inline-block p-3 rounded-full bg-atelier-card border border-atelier-border text-atelier-gold mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                </span>
-                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Exclusive Appointments</p>
-                <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white">Private Fitting & Drop Reservation</h2>
-                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Select your Atelier branch, garment or 1-of-1 boot, and preferred time slot.</p>
-            </div>
 
-            <div class="p-8 md:p-10 bg-atelier-card border border-atelier-border shadow-2xl relative">
-                <form id="fittingForm" onsubmit="handleFittingBooking(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- ================= VIEW 7: PRIVATE FITTING BOOKING ================= -->
+        <section id="view-booking" class="view-section py-28 px-6 bg-atelier-surface border-t border-atelier-border">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="inline-block p-3 rounded-full bg-atelier-card border border-atelier-border text-atelier-gold mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </span>
+                    <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Exclusive Appointments</p>
+                    <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white">Private Fitting & Drop Reservation</h2>
+                    <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Select your Atelier location, piece, and time slot. Instant confirmation via Email & Concierge.</p>
+                </div>
+
+                <div class="p-8 md:p-10 bg-atelier-card border border-atelier-border shadow-2xl relative">
+                    <form id="fittingForm" onsubmit="handleFittingBooking(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Full Legal Name / Alias</label>
+                                <input type="text" id="clientName" required placeholder="Enter full name" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Email Address</label>
+                                <input type="email" id="clientEmail" required placeholder="client@qvaxzion.com" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Select Atelier Location</label>
+                                <select id="branchSelect" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                                    <option value="Lagos Flagship Atelier (Victoria Island)">Lagos Flagship Atelier (Victoria Island)</option>
+                                    <option value="Paris Private Showroom (Le Marais)">Paris Private Showroom (Le Marais)</option>
+                                    <option value="Tokyo Viewing Suite (Shibuya)">Tokyo Viewing Suite (Shibuya)</option>
+                                    <option value="Virtual 1-on-1 Digital Fitting">Virtual 1-on-1 Digital Fitting</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Select Piece / Service</label>
+                                <select id="serviceSelect" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                                    <option value="QX-01 Monolith Overcoat ($480)">QX-01 Monolith Overcoat ($480)</option>
+                                    <option value="QX-02 Vanguard Cipher Hoodie ($250)">QX-02 Vanguard Cipher Hoodie ($250)</option>
+                                    <option value="QX-03 Apex Silk Trousers ($320)">QX-03 Apex Silk Trousers ($320)</option>
+                                    <option value="BOOT-01 Vanguard Combat Boot ($650)">BOOT-01 Vanguard Combat Boot ($650)</option>
+                                    <option value="Custom Bespoke Tailoring Commission">Custom Bespoke Tailoring Commission</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Preferred Date</label>
+                                <input type="date" id="fittingDate" required class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Preferred Time Slot</label>
+                                <select id="timeSlotSelect" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                                    <option value="12:00 PM - 01:00 PM">12:00 PM - 01:00 PM</option>
+                                    <option value="01:00 PM - 02:00 PM">01:00 PM - 02:00 PM</option>
+                                    <option value="03:00 PM - 04:00 PM">03:00 PM - 04:00 PM</option>
+                                    <option value="04:00 PM - 05:00 PM">04:00 PM - 05:00 PM</option>
+                                    <option value="05:00 PM - 06:00 PM">05:00 PM - 06:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div>
+                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Sizing & Custom Styling Notes</label>
+                            <textarea id="fittingNotes" rows="3" placeholder="Enter your size (S/M/L/XL or custom measurements) and styling preferences..." class="w-full bg-atelier-bg border border-atelier-border px-4 py-3 text-sm text-white focus:outline-none rounded-none"></textarea>
+                        </div>
+
+                        <div id="bookingFeedback" class="text-xs text-center hidden"></div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button type="submit" class="w-full py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.18em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-lg">
+                                Confirm Reservation
+                            </button>
+                            <button type="button" onclick="sendViaWhatsApp()" class="w-full py-4 border border-atelier-gold text-atelier-gold font-cinzel font-bold text-xs tracking-[0.18em] uppercase hover:bg-atelier-gold hover:text-atelier-bg transition-all duration-300">
+                                Book Via WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 8: VIP VAULT PORTAL ================= -->
+        <section id="view-vault" class="view-section py-28 px-6">
+            <div class="max-w-xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="inline-block p-3 rounded-full bg-atelier-card border border-atelier-border text-atelier-gold mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </span>
+                    <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Restricted Membership</p>
+                    <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white">The VIP Vault Portal</h2>
+                    <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Sign in or register your credentials to unlock encrypted lookbooks and early drop clearance.</p>
+                </div>
+
+                <!-- Authentication Box -->
+                <div id="authContainer" class="p-8 md:p-10 bg-atelier-card border border-atelier-border shadow-2xl relative">
+                    <div class="flex border-b border-atelier-border mb-8">
+                        <button id="loginTabBtn" onclick="switchTab('login')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-gold border-b-2 border-atelier-gold transition-all">Sign In</button>
+                        <button id="registerTabBtn" onclick="switchTab('register')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-goldLight/40 hover:text-atelier-gold transition-all">Create Account</button>
+                    </div>
+
+                    <form id="vaultForm" onsubmit="handleAuth(event)" class="space-y-6">
+                        <div id="nameFieldContainer" class="hidden">
                             <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Full Legal Name / Alias</label>
-                            <input type="text" id="clientName" required placeholder="Enter full name" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                            <input type="text" id="fullName" placeholder="Enter full name" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
                         </div>
-                        <div>
-                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Email Address</label>
-                            <input type="email" id="clientEmail" required placeholder="client@qvaxzion.com" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
-                        </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Select Atelier Location</label>
-                            <select id="branchSelect" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
-                                <option value="Lagos Flagship Atelier (Victoria Island)">Lagos Flagship Atelier (Victoria Island)</option>
-                                <option value="Paris Private Showroom (Le Marais)">Paris Private Showroom (Le Marais)</option>
-                                <option value="Tokyo Viewing Suite (Shibuya)">Tokyo Viewing Suite (Shibuya)</option>
-                                <option value="Virtual 1-on-1 Digital Fitting">Virtual 1-on-1 Digital Fitting</option>
+                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Registered Email Address</label>
+                            <input type="email" id="emailInput" required placeholder="client@qvaxzion.com" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Vault Passcode (Min. 6 Characters)</label>
+                            <input type="password" id="passwordInput" required placeholder="••••••••••••" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                        </div>
+
+                        <div id="intentFieldContainer" class="hidden space-y-4 pt-2 border-t border-atelier-border">
+                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight">Primary Intention & Focus Area</label>
+                            <select id="userIntent" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                                <option value="Series 01 Capsule Allocation">Series 01 Capsule & Merch Allocation</option>
+                                <option value="Private Digital Runway & Exhibitions">Private Digital Runway & Exhibitions</option>
+                                <option value="Custom Architectural Commission">Custom Architectural Commission</option>
+                                <option value="General Collector & Patron">General Collector & Patron Network</option>
                             </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Select Piece / Service</label>
-                            <select id="serviceSelect" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
-                                <option value="QX-01 Monolith Overcoat ($480)">QX-01 Monolith Overcoat ($480)</option>
-                                <option value="QX-02 Vanguard Cipher Hoodie ($250)">QX-02 Vanguard Cipher Hoodie ($250)</option>
-                                <option value="QX-03 Apex Silk Trousers ($320)">QX-03 Apex Silk Trousers ($320)</option>
-                                <option value="BOOT-01 Monolith Combat Boot ($540)">BOOT-01 Monolith Combat Boot ($540)</option>
-                                <option value="BOOT-02 Vanguard Cipher Chelsea ($460)">BOOT-02 Vanguard Cipher Chelsea ($460)</option>
-                                <option value="BOOT-03 Apex Technical Runner ($390)">BOOT-03 Apex Technical Runner ($390)</option>
-                                <option value="Custom Bespoke Tailoring Commission">Custom Bespoke Tailoring Commission</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Preferred Date</label>
-                            <input type="date" id="fittingDate" required class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                            <div>
+                                <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Describe Your Vision / Background</label>
+                                <textarea id="userNotes" rows="3" placeholder="Share what brings you to QVAXZION..." class="w-full bg-atelier-bg border border-atelier-border px-4 py-3 text-sm text-white focus:outline-none rounded-none"></textarea>
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Preferred Time Slot</label>
-                            <select id="timeSlotSelect" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
-                                <option value="12:00 PM - 01:00 PM">12:00 PM - 01:00 PM</option>
-                                <option value="01:00 PM - 02:00 PM">01:00 PM - 02:00 PM</option>
-                                <option value="03:00 PM - 04:00 PM">03:00 PM - 04:00 PM</option>
-                                <option value="04:00 PM - 05:00 PM">04:00 PM - 05:00 PM</option>
-                                <option value="05:00 PM - 06:00 PM">05:00 PM - 06:00 PM</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div>
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Sizing & Custom Styling Notes</label>
-                        <textarea id="fittingNotes" rows="3" placeholder="Enter shoe/clothing size and specific customization notes..." class="w-full bg-atelier-bg border border-atelier-border px-4 py-3 text-sm text-white focus:outline-none rounded-none"></textarea>
-                    </div>
+                        <div id="authFeedback" class="text-xs text-center hidden"></div>
 
-                    <div id="bookingFeedback" class="text-xs text-center hidden"></div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <button type="submit" class="w-full py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.18em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-lg">
-                            Confirm Reservation
+                        <button type="submit" id="submitBtn" class="w-full py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-lg">
+                            Authenticate Identity
                         </button>
-                        <button type="button" onclick="sendViaWhatsApp()" class="w-full py-4 border border-atelier-gold text-atelier-gold font-cinzel font-bold text-xs tracking-[0.18em] uppercase hover:bg-atelier-gold hover:text-atelier-bg transition-all duration-300">
-                            Book Via WhatsApp
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================= PAGE 7: VIP VAULT (SECURED LOGIN / REGISTER) ================= -->
-    <div id="page-vault" class="page-view pt-28 pb-28 px-6 bg-atelier-surface">
-        <div class="max-w-xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="inline-block p-3 rounded-full bg-atelier-card border border-atelier-border text-atelier-gold mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                </span>
-                <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Restricted Membership</p>
-                <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white">The VIP Vault Portal</h2>
-                <p class="text-xs text-atelier-goldLight/60 mt-3 font-light">Sign in or register your credentials to unlock encrypted lookbooks and early drop clearance.</p>
-            </div>
-
-            <!-- Authentication Box -->
-            <div id="authContainer" class="p-8 md:p-10 bg-atelier-card border border-atelier-border shadow-2xl relative">
-                <div class="flex border-b border-atelier-border mb-8">
-                    <button id="loginTabBtn" onclick="switchAuthTab('login')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-gold border-b-2 border-atelier-gold transition-all">Sign In</button>
-                    <button id="registerTabBtn" onclick="switchAuthTab('register')" class="flex-1 pb-4 text-xs font-cinzel font-bold tracking-[0.2em] uppercase text-atelier-goldLight/40 hover:text-atelier-gold transition-all">Create Account</button>
+                    </form>
                 </div>
 
-                <form id="vaultForm" onsubmit="handleAuth(event)" class="space-y-6">
-                    <div id="nameFieldContainer" class="hidden">
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Full Legal Name / Alias</label>
-                        <input type="text" id="fullName" placeholder="Enter full name" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                <!-- Unlocked Vault Content -->
+                <div id="vaultContent" class="hidden p-8 md:p-10 bg-atelier-card border border-atelier-gold/50 shadow-2xl text-center">
+                    <div class="inline-flex p-3 rounded-full bg-atelier-gold/10 text-atelier-gold mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
                     </div>
-
-                    <div>
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Registered Email Address</label>
-                        <input type="email" id="emailInput" required placeholder="client@qvaxzion.com" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
+                    <h3 class="font-cinzel text-xl font-bold tracking-wider text-white mb-2">Access Granted</h3>
+                    <p id="welcomeUserText" class="text-xs text-atelier-gold mb-6 font-mono"></p>
+                    <div class="p-4 bg-atelier-bg border border-atelier-border text-left mb-6 space-y-2">
+                        <p class="text-xs text-atelier-goldLight/80 font-semibold tracking-wider uppercase font-cinzel">Active Security Clearance:</p>
+                        <p class="text-xs text-atelier-goldLight/60">• Level 1 Encrypted Lookbook Unlocked</p>
+                        <p class="text-xs text-atelier-goldLight/60">• Priority Allocation for Series 01 Drop & 1-of-1 Boots</p>
                     </div>
-
-                    <div>
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Vault Passcode (Min. 6 Characters)</label>
-                        <input type="password" id="passwordInput" required placeholder="••••••••••••" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
-                    </div>
-
-                    <div id="intentFieldContainer" class="hidden space-y-4 pt-2 border-t border-atelier-border">
-                        <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight">Primary Intention & Focus Area</label>
-                        <select id="userIntent" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3.5 text-sm text-white focus:outline-none rounded-none">
-                            <option value="Series 01 Capsule & Footwear Allocation">Series 01 Capsule & Footwear Allocation</option>
-                            <option value="Private Digital Runway & Exhibitions">Private Digital Runway & Exhibitions</option>
-                            <option value="Custom Architectural Commission">Custom Architectural Commission</option>
-                            <option value="General Collector & Patron">General Collector & Patron Network</option>
-                        </select>
-
-                        <div>
-                            <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Describe Your Vision / Background</label>
-                            <textarea id="userNotes" rows="3" placeholder="Share what brings you to QVAXZION..." class="w-full bg-atelier-bg border border-atelier-border px-4 py-3 text-sm text-white focus:outline-none rounded-none"></textarea>
-                        </div>
-                    </div>
-
-                    <div id="authFeedback" class="text-xs text-center hidden"></div>
-
-                    <button type="submit" id="submitBtn" class="w-full py-4 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-atelier-goldLight transition-all duration-300 shadow-lg">
-                        Authenticate Identity
+                    <button onclick="handleLogout()" class="px-6 py-3 border border-atelier-border text-xs font-cinzel font-bold tracking-widest text-atelier-goldLight hover:border-atelier-gold uppercase transition-all">
+                        Lock Session
                     </button>
-                </form>
-            </div>
-
-            <!-- Unlocked Vault Content -->
-            <div id="vaultContent" class="hidden p-8 md:p-10 bg-atelier-card border border-atelier-gold/50 shadow-2xl text-center">
-                <div class="inline-flex p-3 rounded-full bg-atelier-gold/10 text-atelier-gold mb-4">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
                 </div>
-                <h3 class="font-cinzel text-xl font-bold tracking-wider text-white mb-2">Access Granted</h3>
-                <p id="welcomeUserText" class="text-xs text-atelier-gold mb-6 font-mono"></p>
-                <div class="p-4 bg-atelier-bg border border-atelier-border text-left mb-6 space-y-2">
-                    <p class="text-xs text-atelier-goldLight/80 font-semibold tracking-wider uppercase font-cinzel">Active Security Clearance:</p>
-                    <p class="text-xs text-atelier-goldLight/60">• Level 1 Encrypted Footwear Lookbook Unlocked</p>
-                    <p class="text-xs text-atelier-goldLight/60">• Priority Allocation for Series 01 Boot Drops</p>
-                    <p class="text-xs text-atelier-goldLight/60">• Direct Concierge Access Enabled</p>
-                </div>
-                <button onclick="handleLogout()" class="px-6 py-3 border border-atelier-border text-xs font-cinzel font-bold tracking-widest text-atelier-goldLight hover:border-atelier-gold uppercase transition-all">
-                    Lock Session
-                </button>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Universal Footer -->
-    <footer class="py-20 px-6 bg-atelier-bg border-t border-atelier-border">
+    </main>
+
+    <!-- Comprehensive Luxury Footer -->
+    <footer class="py-20 px-6 bg-atelier-bg border-t border-atelier-border mt-20">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
             <div class="md:col-span-2">
                 <span class="font-cinzel text-2xl font-bold tracking-[0.25em] gold-gradient-text block mb-4">QVAXZION</span>
                 <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed max-w-sm">
-                    Digital Avant-Garde Haute Couture & 1-of-1 Footwear. Engineered outside traditional seasonal timelines with architectural precision.
+                    Digital Avant-Garde Haute Couture. Engineered outside traditional seasonal timelines with architectural precision and absolute autonomy.
                 </p>
             </div>
             <div>
                 <h4 class="font-cinzel text-xs font-bold tracking-[0.2em] text-white uppercase mb-4">Navigation</h4>
-                <ul class="space-y-2 text-xs text-atelier-goldLight/60">
-                    <li><button onclick="switchPage('welcome')" class="hover:text-atelier-gold">Main Welcome</button></li>
-                    <li><button onclick="switchPage('atelier')" class="hover:text-atelier-gold">Atelier Sanctuary</button></li>
-                    <li><button onclick="switchPage('gallery')" class="hover:text-atelier-gold">Completed Gallery</button></li>
-                    <li><button onclick="switchPage('footwear')" class="hover:text-atelier-gold">Boots & Footwear</button></li>
+                <ul class="space-y-2 text-xs text-atelier-goldLight/60 font-cinzel">
+                    <li><button onclick="switchView('home')" class="hover:text-atelier-gold">Home</button></li>
+                    <li><button onclick="switchView('meaning')" class="hover:text-atelier-gold">The Meaning</button></li>
+                    <li><button onclick="switchView('machine')" class="hover:text-atelier-gold">Designing Machine</button></li>
+                    <li><button onclick="switchView('collections')" class="hover:text-atelier-gold">Collections</button></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-cinzel text-xs font-bold tracking-[0.2em] text-white uppercase mb-4">Ateliers & Concierge</h4>
-                <ul class="space-y-2 text-xs text-atelier-goldLight/60">
-                    <li>Lagos · Victoria Island</li>
-                    <li>Paris · Le Marais</li>
-                    <li>Tokyo · Shibuya</li>
-                    <li><button onclick="switchPage('booking')" class="text-atelier-gold hover:underline">Book Fitting →</button></li>
+                <h4 class="font-cinzel text-xs font-bold tracking-[0.2em] text-white uppercase mb-4">Archives & Concierge</h4>
+                <ul class="space-y-2 text-xs text-atelier-goldLight/60 font-cinzel">
+                    <li><button onclick="switchView('footwear')" class="hover:text-atelier-gold">1-of-1 Footwear</button></li>
+                    <li><button onclick="switchView('gallery')" class="hover:text-atelier-gold">Completed Gallery</button></li>
+                    <li><button onclick="switchView('booking')" class="hover:text-atelier-gold">Private Fitting</button></li>
+                    <li><button onclick="switchView('vault')" class="hover:text-atelier-gold">VIP Vault</button></li>
                 </ul>
             </div>
         </div>
@@ -597,100 +698,31 @@
         </div>
     </footer>
 
-    <!-- Universal Modal -->
-    <div id="universalModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-6">
-        <div class="bg-atelier-card border border-atelier-gold p-8 max-w-2xl w-full relative shadow-2xl">
-            <button onclick="closeUniversalModal()" class="absolute top-5 right-5 text-atelier-gold hover:text-white font-cinzel text-xs tracking-widest">✕ CLOSE</button>
-            <p id="modalSubtitle" class="text-[10px] font-cinzel tracking-[0.25em] text-atelier-gold uppercase mb-2"></p>
-            <h3 id="modalTitle" class="font-cinzel text-2xl font-bold text-white mb-4"></h3>
-            <div id="modalBody" class="text-xs text-atelier-goldLight/80 leading-relaxed space-y-4"></div>
-        </div>
-    </div>
-
-    <!-- Multi-Page Switching & Interactive Engine Script -->
+    <!-- Full Multi-View Engine & Interaction Script -->
     <script>
-        let currentAuthMode = 'login';
-
-        function switchPage(pageId) {
-            // Hide all page views
-            const pages = document.querySelectorAll('.page-view');
-            pages.forEach(p => p.classList.remove('active'));
-
-            // Show selected page view
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
-
-            // Scroll to top smoothly
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
 
-        // Lightbox for Atelier Workspace
-        function openLightbox(title, subtitle, description) {
-            document.getElementById('modalSubtitle').innerText = subtitle;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalBody').innerHTML = `
-                <div class="h-56 bg-atelier-bg border border-atelier-border flex items-center justify-center mb-4">
-                    <span class="font-cinzel text-sm tracking-[0.25em] text-atelier-gold uppercase">QVAXZION ATELIER ARCHIVE</span>
-                </div>
-                <p class="text-sm text-atelier-goldLight/80 font-light leading-relaxed">${description}</p>
-            `;
-            document.getElementById('universalModal').classList.remove('hidden');
-        }
+        // Multi-View Router
+        function switchView(viewId) {
+            const sections = document.querySelectorAll('.view-section');
+            sections.forEach(sec => sec.classList.remove('active'));
 
-        // Video Player Modal
-        function openVideoModal(title, note) {
-            document.getElementById('modalSubtitle').innerText = 'MOTION ARCHIVE STREAM';
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalBody').innerHTML = `
-                <div class="h-72 bg-atelier-bg border border-atelier-border flex flex-col items-center justify-center p-6 text-center">
-                    <div class="w-14 h-14 rounded-full border border-atelier-gold flex items-center justify-center mb-4 animate-pulse">
-                        <svg class="w-6 h-6 text-atelier-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                    <p class="text-xs text-atelier-gold uppercase tracking-widest mb-2">Ready For Your MP4 Video File</p>
-                    <p class="text-[11px] text-atelier-goldLight/50 max-w-md">${note}</p>
-                </div>
-            `;
-            document.getElementById('universalModal').classList.remove('hidden');
-        }
-
-        // Product Specs Modal
-        function openProductModal(title, price, specs) {
-            document.getElementById('modalSubtitle').innerText = `SERIES 01 ARCHIVE · ${price}`;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalBody').innerHTML = `
-                <p class="text-sm text-atelier-goldLight/90 font-light leading-relaxed border-y border-atelier-border py-4">${specs}</p>
-                <div class="pt-2">
-                    <button onclick="closeUniversalModal(); selectPieceForBooking('${title} (${price})')" class="w-full py-3.5 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.2em] uppercase hover:bg-atelier-goldLight transition-all">
-                        Proceed To Private Fitting Reservation
-                    </button>
-                </div>
-            `;
-            document.getElementById('universalModal').classList.remove('hidden');
-        }
-
-        function closeUniversalModal() {
-            document.getElementById('universalModal').classList.add('hidden');
-        }
-
-        // Auto-select piece in booking form and switch to booking page
-        function selectPieceForBooking(pieceValue) {
-            const select = document.getElementById('serviceSelect');
-            for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].value === pieceValue) {
-                    select.selectedIndex = i;
-                    break;
-                }
+            const target = document.getElementById('view-' + viewId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            switchPage('booking');
+
+            // Update active nav styling
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('text-atelier-gold'));
+            const activeNav = document.getElementById('nav-' + viewId);
+            if (activeNav) activeNav.classList.add('text-atelier-gold');
         }
 
-        // Private Fitting Form Submission (EmailJS + Instant Confirmation)
+        // Private Fitting Booking (EmailJS + Confirmation)
         function handleFittingBooking(event) {
             event.preventDefault();
             const name = document.getElementById('clientName').value.trim();
@@ -730,7 +762,7 @@
             }, 1000);
         }
 
-        // Direct WhatsApp Concierge Booking Integration
+        // WhatsApp Concierge Integration (Replace 2348000000000 with your real WhatsApp number)
         function sendViaWhatsApp() {
             const name = document.getElementById('clientName').value.trim() || 'VIP Client';
             const branch = document.getElementById('branchSelect').value;
@@ -739,15 +771,15 @@
             const time = document.getElementById('timeSlotSelect').value;
             const notes = document.getElementById('fittingNotes').value.trim() || 'Standard sizing';
 
-            // Replace 2348000000000 with your real WhatsApp number
             const whatsappNumber = "2348000000000";
             const message = `Hello QVAXZION Atelier,%0A%0AI would like to reserve a Private Fitting / Drop:%0A• Name: ${name}%0A• Location: ${branch}%0A• Selection: ${service}%0A• Date & Time: ${date} (${time})%0A• Notes: ${notes}`;
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
         }
 
         // VIP Vault Auth System
-        function switchAuthTab(mode) {
-            currentAuthMode = mode;
+        let currentMode = 'login';
+        function switchTab(mode) {
+            currentMode = mode;
             const loginBtn = document.getElementById('loginTabBtn');
             const registerBtn = document.getElementById('registerTabBtn');
             const nameField = document.getElementById('nameFieldContainer');
@@ -790,7 +822,7 @@
 
             let users = JSON.parse(localStorage.getItem('qvaxzion_vault_users') || '{}');
 
-            if (currentAuthMode === 'register') {
+            if (currentMode === 'register') {
                 if (users[email]) {
                     feedback.innerText = "Error: Account already exists with this email. Please sign in.";
                     feedback.className = "text-xs text-red-400 text-center";
