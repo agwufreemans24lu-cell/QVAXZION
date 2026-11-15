@@ -100,9 +100,9 @@
 
         <!-- Mobile Navigation Drawer -->
         <div id="mobileMenu" class="hidden xl:hidden bg-atelier-surface border-b border-atelier-border px-6 py-6 space-y-4">
-            <button onclick="switchView('home'); toggleMobileMenu();" class="block w-text-left text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">01. Welcome Home</button>
+            <button onclick="switchView('home'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">01. Welcome Home</button>
             <button onclick="switchView('meaning'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">02. The QVAXZION Meaning</button>
-            <button onclick="switchView('machine'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">03. Designing Machine & Atelier</button>
+            <button onclick="switchView('machine'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">03. Designing Machine & Lab</button>
             <button onclick="switchView('collections'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">04. Capsule Collections</button>
             <button onclick="switchView('footwear'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">05. 1-of-1 Footwear & Boots</button>
             <button onclick="switchView('gallery'); toggleMobileMenu();" class="block text-xs font-cinzel tracking-[0.2em] uppercase text-atelier-goldLight hover:text-atelier-gold">06. Completed Jobs Gallery</button>
@@ -164,7 +164,7 @@
                 </div>
             </div>
 
-            <!-- Welcome Showcase Hub (Grid leading to other pages) -->
+            <!-- Welcome Showcase Hub with Cinematic Imagery -->
             <section class="py-24 px-6 bg-atelier-surface border-t border-atelier-border">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center max-w-2xl mx-auto mb-16">
@@ -173,25 +173,43 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div onclick="switchView('machine')" class="group cursor-pointer p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all">
-                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-3">01 / Technology & Craft</span>
-                            <h3 class="font-cinzel text-xl font-bold text-white mb-3">The Designing Machine</h3>
-                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-6">Inspect our heavy-duty industrial machinery, precision laser cutters, and pattern drafting systems.</p>
-                            <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">Enter Machine Lab →</span>
+                        <div onclick="switchView('machine')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
+                            <div class="h-60 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80" alt="Designing Machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-75">
+                                <div class="absolute inset-0 bg-gradient-to-t from-atelier-card via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-6">
+                                <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">01 / Technology & Craft</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white mb-2">The Designing Machine</h3>
+                                <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-4">Inspect our heavy-duty industrial machinery, precision laser cutters, and pattern drafting systems.</p>
+                                <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">Enter Machine Lab →</span>
+                            </div>
                         </div>
 
-                        <div onclick="switchView('footwear')" class="group cursor-pointer p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all">
-                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-3">02 / Rare Archive</span>
-                            <h3 class="font-cinzel text-xl font-bold text-white mb-3">1-of-1 Footwear & Boots</h3>
-                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-6">Discover untouched architectural combat boots, metallic dress shoes, and handcrafted leather footwear.</p>
-                            <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">Inspect Footwear Vault →</span>
+                        <div onclick="switchView('footwear')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
+                            <div class="h-60 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80" alt="Footwear Vault" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-75">
+                                <div class="absolute inset-0 bg-gradient-to-t from-atelier-card via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-6">
+                                <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">02 / Rare Archive</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white mb-2">1-of-1 Footwear & Boots</h3>
+                                <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-4">Discover untouched architectural combat boots, metallic dress shoes, and handcrafted leather footwear.</p>
+                                <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">Inspect Footwear Vault →</span>
+                            </div>
                         </div>
 
-                        <div onclick="switchView('gallery')" class="group cursor-pointer p-8 bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all">
-                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-3">03 / Proven Excellence</span>
-                            <h3 class="font-cinzel text-xl font-bold text-white mb-3">Completed Jobs Gallery</h3>
-                            <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-6">Browse real delivered bespoke client projects, editorial garments, and custom runway looks.</p>
-                            <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">View Completed Work →</span>
+                        <div onclick="switchView('gallery')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
+                            <div class="h-60 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="Completed Gallery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-75">
+                                <div class="absolute inset-0 bg-gradient-to-t from-atelier-card via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-6">
+                                <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">03 / Proven Excellence</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white mb-2">Completed Jobs Gallery</h3>
+                                <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-4">Browse real delivered bespoke client projects, editorial garments, and custom runway looks.</p>
+                                <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">View Completed Work →</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -289,7 +307,7 @@
                     <p class="text-xs text-atelier-goldLight/60 mt-4">Where heavy-duty industrial machinery meets digital avant-garde pattern drafting.</p>
                 </div>
 
-                <!-- Designing Machine Visual Showcase Box -->
+                <!-- Designing Machine Visual Showcase Box with Cinematic Image -->
                 <div class="bg-atelier-surface border border-atelier-border p-8 md:p-12 mb-16 relative overflow-hidden">
                     <div class="absolute inset-0 bg-atelier-gold/5 pointer-events-none"></div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
@@ -305,11 +323,13 @@
                                 <li class="flex items-center space-x-2"><span>✦</span><span>Pneumatic Hardware Setting Stations</span></li>
                             </ul>
                         </div>
-                        <div class="h-80 bg-atelier-card border border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
-                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent"></div>
-                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter mb-2">Q-MAC</span>
-                            <p class="text-xs font-cinzel text-atelier-gold tracking-widest uppercase">Industrial CNC & Sewing Rig</p>
-                            <p class="text-[10px] text-atelier-goldLight/50 mt-2">Operational Status: Online & Calibrated</p>
+                        <div class="h-80 bg-atelier-card border border-atelier-border rounded-none overflow-hidden relative shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=80" alt="Designing Machine Studio" class="w-full h-full object-cover opacity-85">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-bg via-transparent to-transparent opacity-60"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-left">
+                                <span class="font-cinzel text-xs text-atelier-gold tracking-widest uppercase font-bold">Q-MAC Industrial Rig</span>
+                                <p class="text-[10px] text-atelier-goldLight/80">Operational Status: Online & Calibrated</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -348,10 +368,11 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
-                        <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
-                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">QX-01</span>
-                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">LIMITED</span>
+                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/65 transition-all overflow-hidden">
+                        <div class="h-80 bg-atelier-card relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" alt="Monolith Overcoat" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-card via-transparent to-transparent opacity-60"></div>
+                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg/95 border border-atelier-border text-[10px] font-mono text-atelier-gold">LIMITED</span>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -363,10 +384,11 @@
                         </div>
                     </div>
 
-                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
-                        <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
-                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">QX-02</span>
-                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">CAPSULE</span>
+                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/65 transition-all overflow-hidden">
+                        <div class="h-80 bg-atelier-card relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80" alt="Vanguard Cipher Hoodie" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-card via-transparent to-transparent opacity-60"></div>
+                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg/95 border border-atelier-border text-[10px] font-mono text-atelier-gold">CAPSULE</span>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -378,10 +400,11 @@
                         </div>
                     </div>
 
-                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/60 transition-all overflow-hidden">
-                        <div class="h-80 bg-atelier-card flex items-center justify-center relative overflow-hidden">
-                            <span class="font-cinzel text-6xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">QX-03</span>
-                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg border border-atelier-border text-[10px] font-mono text-atelier-gold">ARCHIVAL</span>
+                    <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold/65 transition-all overflow-hidden">
+                        <div class="h-80 bg-atelier-card relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Apex Silk Trousers" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-card via-transparent to-transparent opacity-60"></div>
+                            <span class="absolute top-4 right-4 px-3 py-1 bg-atelier-bg/95 border border-atelier-border text-[10px] font-mono text-atelier-gold">ARCHIVAL</span>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -409,10 +432,10 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-atelier-card border border-atelier-border p-6 relative group">
-                        <div class="h-72 bg-atelier-bg border border-atelier-border flex items-center justify-center mb-6 relative overflow-hidden">
-                            <span class="font-cinzel text-5xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">BOOT-01</span>
-                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
+                    <div class="bg-atelier-card border border-atelier-border p-6 relative group overflow-hidden">
+                        <div class="h-72 bg-atelier-bg border border-atelier-border mb-6 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=800&q=80" alt="Vanguard Combat Boot" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface/90 border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white tracking-wider mb-2">Vanguard Combat Boot</h3>
                         <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Full-grain matte calfskin leather with reinforced steel toe capping and titanium side-zip architecture.</p>
@@ -422,10 +445,10 @@
                         </div>
                     </div>
 
-                    <div class="bg-atelier-card border border-atelier-border p-6 relative group">
-                        <div class="h-72 bg-atelier-bg border border-atelier-border flex items-center justify-center mb-6 relative overflow-hidden">
-                            <span class="font-cinzel text-5xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">BOOT-02</span>
-                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
+                    <div class="bg-atelier-card border border-atelier-border p-6 relative group overflow-hidden">
+                        <div class="h-72 bg-atelier-bg border border-atelier-border mb-6 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80" alt="Monolith Platform Derby" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface/90 border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white tracking-wider mb-2">Monolith Platform Derby</h3>
                         <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Sculptural stacked leather sole with Goodyear welt construction and brushed gold eyelet hardware.</p>
@@ -435,10 +458,10 @@
                         </div>
                     </div>
 
-                    <div class="bg-atelier-card border border-atelier-border p-6 relative group">
-                        <div class="h-72 bg-atelier-bg border border-atelier-border flex items-center justify-center mb-6 relative overflow-hidden">
-                            <span class="font-cinzel text-5xl font-black text-atelier-border tracking-tighter group-hover:text-atelier-gold/20 transition-all">BOOT-03</span>
-                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
+                    <div class="bg-atelier-card border border-atelier-border p-6 relative group overflow-hidden">
+                        <div class="h-72 bg-atelier-bg border border-atelier-border mb-6 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80" alt="Cipher Tactical Sneaker-Boot" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-2.5 py-1 bg-atelier-surface/90 border border-atelier-gold text-[9px] font-mono text-atelier-gold">1-OF-1 UNTOUCHED</span>
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white tracking-wider mb-2">Cipher Tactical Sneaker-Boot</h3>
                         <p class="text-xs text-atelier-goldLight/60 font-light mb-4">High-top architectural silhouette featuring technical ballistic nylon and magnetic FIDLOCK strap closures.</p>
@@ -465,34 +488,40 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-atelier-surface border border-atelier-border overflow-hidden group">
-                        <div class="h-72 bg-atelier-card border-b border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
-                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-1">CLIENT COMMISSION #01</span>
-                            <h3 class="font-cinzel text-lg font-bold text-white">Bespoke Runway Overcoat</h3>
-                            <span class="mt-3 px-3 py-1 bg-green-950/60 border border-green-800 text-[10px] font-mono text-green-400">DELIVERED · LAGOS ATELIER</span>
+                        <div class="h-64 bg-atelier-card relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Bespoke Runway Overcoat" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-surface via-transparent to-transparent"></div>
                         </div>
-                        <div class="p-6">
+                        <div class="p-6 border-t border-atelier-border">
+                            <span class="font-cinzel text-[10px] text-atelier-gold tracking-[0.2em] mb-1 block">CLIENT COMMISSION #01</span>
+                            <h3 class="font-cinzel text-lg font-bold text-white mb-2">Bespoke Runway Overcoat</h3>
+                            <span class="inline-block px-2.5 py-1 bg-green-950/60 border border-green-800 text-[9px] font-mono text-green-400 mb-3">DELIVERED · LAGOS ATELIER</span>
                             <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Custom heavy wool overcoat with hand-forged bronze hardware, delivered to a private collector in Victoria Island.</p>
                         </div>
                     </div>
 
                     <div class="bg-atelier-surface border border-atelier-border overflow-hidden group">
-                        <div class="h-72 bg-atelier-card border-b border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
-                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-1">CLIENT COMMISSION #02</span>
-                            <h3 class="font-cinzel text-lg font-bold text-white">Architectural Cipher Suit</h3>
-                            <span class="mt-3 px-3 py-1 bg-green-950/60 border border-green-800 text-[10px] font-mono text-green-400">DELIVERED · PARIS SHOWROOM</span>
+                        <div class="h-64 bg-atelier-card relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Architectural Cipher Suit" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-surface via-transparent to-transparent"></div>
                         </div>
-                        <div class="p-6">
+                        <div class="p-6 border-t border-atelier-border">
+                            <span class="font-cinzel text-[10px] text-atelier-gold tracking-[0.2em] mb-1 block">CLIENT COMMISSION #02</span>
+                            <h3 class="font-cinzel text-lg font-bold text-white mb-2">Architectural Cipher Suit</h3>
+                            <span class="inline-block px-2.5 py-1 bg-green-950/60 border border-green-800 text-[9px] font-mono text-green-400 mb-3">DELIVERED · PARIS SHOWROOM</span>
                             <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Double-breasted architectural blazer and pleated trousers crafted for an international music video premiere.</p>
                         </div>
                     </div>
 
                     <div class="bg-atelier-surface border border-atelier-border overflow-hidden group">
-                        <div class="h-72 bg-atelier-card border-b border-atelier-border flex flex-col items-center justify-center p-6 text-center relative">
-                            <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] mb-1">CLIENT COMMISSION #03</span>
-                            <h3 class="font-cinzel text-lg font-bold text-white">Series 01 Leather Harness</h3>
-                            <span class="mt-3 px-3 py-1 bg-green-950/60 border border-green-800 text-[10px] font-mono text-green-400">DELIVERED · TOKYO SUITE</span>
+                        <div class="h-64 bg-atelier-card relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=800&q=80" alt="Series 01 Leather Harness" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-atelier-surface via-transparent to-transparent"></div>
                         </div>
-                        <div class="p-6">
+                        <div class="p-6 border-t border-atelier-border">
+                            <span class="font-cinzel text-[10px] text-atelier-gold tracking-[0.2em] mb-1 block">CLIENT COMMISSION #03</span>
+                            <h3 class="font-cinzel text-lg font-bold text-white mb-2">Series 01 Leather Harness</h3>
+                            <span class="inline-block px-2.5 py-1 bg-green-950/60 border border-green-800 text-[9px] font-mono text-green-400 mb-3">DELIVERED · TOKYO SUITE</span>
                             <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed">Hand-riveted Italian calfskin body harness with custom-molded champagne gold metallic buckles.</p>
                         </div>
                     </div>
@@ -543,7 +572,7 @@
                                     <option value="QX-02 Vanguard Cipher Hoodie ($250)">QX-02 Vanguard Cipher Hoodie ($250)</option>
                                     <option value="QX-03 Apex Silk Trousers ($320)">QX-03 Apex Silk Trousers ($320)</option>
                                     <option value="BOOT-01 Vanguard Combat Boot ($650)">BOOT-01 Vanguard Combat Boot ($650)</option>
-                                    <option value="Custom Bespoke Tailoring Commission">Custom Bespoke Tailoring Commission</option>
+                                    <option value="Custom Bespoke Tailoring Consultation">Custom Bespoke Tailoring Consultation</option>
                                 </select>
                             </div>
                         </div>
@@ -762,7 +791,7 @@
             }, 1000);
         }
 
-        // WhatsApp Concierge Integration (Replace 2348000000000 with your real WhatsApp number)
+        // WhatsApp Concierge Integration
         function sendViaWhatsApp() {
             const name = document.getElementById('clientName').value.trim() || 'VIP Client';
             const branch = document.getElementById('branchSelect').value;
