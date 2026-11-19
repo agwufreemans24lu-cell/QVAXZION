@@ -70,7 +70,7 @@
 </head>
 <body class="bg-atelier-bg text-atelier-goldLight antialiased selection:bg-atelier-gold selection:text-atelier-bg">
 
-    <!-- TOP BAR (VISITOR-FACING: CLEAN BRAND + FITTING + SHORTLIST) -->
+    <!-- TOP BAR -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-atelier-bg/95 backdrop-blur-md border-b border-atelier-border h-16">
         <div class="h-full px-4 md:px-6 flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
@@ -195,7 +195,6 @@
                         </div>
                     </div>
 
-                    <!-- Filtered Results Preview (Shows when searching or filtering) -->
                     <div id="homeFilteredResults" class="hidden mt-6"></div>
                 </div>
             </div>
@@ -211,7 +210,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div onclick="switchView('available')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
                             <div class="h-64 bg-atelier-bg overflow-hidden relative">
-                                <img src="./suit.jpg" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=90'" alt="Available Creations" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                                <img src="./Green.jpg" onerror="if(this.src.indexOf('green.jpg')===-1){this.src='./green.jpg';}else{this.src='./suit.jpg';}" alt="Available Creations" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="p-6 border-t border-atelier-border">
                                 <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">01 / Garments For Collector</span>
@@ -301,7 +300,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div onclick="openItemModal('Q / Quality', 'House Pillar · Q', 'Uncompromising material integrity across every garment, stitch, and custom detail.', './Mh1.jpg', 'PILLAR Q', 'Heavyweight fabrics & clean seam discipline')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('Q / Quality', 'House Pillar · Q', 'Uncompromising material integrity across every garment, stitch, and custom detail.', './Mh1.jpg', 'PILLAR Q', 'Heavyweight fabrics & clean seam discipline', 'SPEC-Q')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">Q</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Quality</h3>
@@ -309,7 +308,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Uncompromising material integrity across every garment, stitch, and custom detail.</p>
                     </div>
 
-                    <div onclick="openItemModal('V / Vision', 'House Pillar · V', 'Defining bold silhouettes and commanding visual authority before mainstream retail catches up.', './Mh2.jpg', 'PILLAR V', 'Original crest & sculptural garment direction')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('V / Vision', 'House Pillar · V', 'Defining bold silhouettes and commanding visual authority before mainstream retail catches up.', './Mh2.jpg', 'PILLAR V', 'Original crest & sculptural garment direction', 'SPEC-V')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">V</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Vision</h3>
@@ -317,7 +316,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Sculptural silhouettes and commanding visual authority built for the modern sovereign collector.</p>
                     </div>
 
-                    <div onclick="openItemModal('A / Autonomy', 'House Pillar · A', 'Operating independently from seasonal mass-market trends or external compromises.', './cres.jpg', 'PILLAR A', 'Full creative & production independence')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('A / Autonomy', 'House Pillar · A', 'Operating independently from seasonal mass-market trends or external compromises.', './cres.jpg', 'PILLAR A', 'Full creative & production independence', 'SPEC-A')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">A</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Autonomy</h3>
@@ -325,7 +324,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Full creative command over every design release, meaning, and 1-of-1 edition.</p>
                     </div>
 
-                    <div onclick="openItemModal('X / Variable', 'House Pillar · X', 'Distinctive individual character tailored to collectors who reject ordinary uniformity.', './suit.jpg', 'PILLAR X', '1-of-1 individuality in every piece')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('X / Variable', 'House Pillar · X', 'Distinctive individual character tailored to collectors who reject ordinary uniformity.', './Green.jpg', 'PILLAR X', '1-of-1 individuality in every piece', 'SPEC-X')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">X</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Variable</h3>
@@ -333,7 +332,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Every 1-of-1 piece carries its own signature craft, embroidery, and tailored fit.</p>
                     </div>
 
-                    <div onclick="openItemModal('Z / Zero', 'House Pillar · Z', 'Built on a clean, sharp foundation with zero clutter or recycled mediocrity.', './Mh3.jpg', 'PILLAR Z', 'Zero duplicates once sold')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('Z / Zero', 'House Pillar · Z', 'Built on a clean, sharp foundation with zero clutter or recycled mediocrity.', './Mh3.jpg', 'PILLAR Z', 'Zero duplicates once sold', 'SPEC-Z')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">Z</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Zero</h3>
@@ -341,7 +340,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Zero duplicates once sold—every claimed piece moves permanently into the Sold Out Archive.</p>
                     </div>
 
-                    <div onclick="openItemModal('I / Innovation', 'House Pillar · I', 'Precision tailoring paired with modern garment sewing, embroidery, and design equipment.', './Mh2.jpg', 'PILLAR I', 'Studio machinery & modern execution')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('I / Innovation', 'House Pillar · I', 'Precision tailoring paired with modern garment sewing, embroidery, and design equipment.', './Mh2.jpg', 'PILLAR I', 'Studio machinery & modern execution', 'SPEC-I')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">I</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Innovation</h3>
@@ -349,7 +348,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Combining classic tailoring discipline with studio equipment and direct concierge access.</p>
                     </div>
 
-                    <div onclick="openItemModal('O / Originality', 'House Pillar · O', 'Original crest identity, proprietary Q hardware, and unmistakable presence.', './cres.jpg', 'PILLAR O', 'Unmistakable house identity')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('O / Originality', 'House Pillar · O', 'Original crest identity, proprietary Q hardware, and unmistakable presence.', './cres.jpg', 'PILLAR O', 'Unmistakable house identity', 'SPEC-O')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">O</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Originality</h3>
@@ -357,7 +356,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Original house identity designed to stand apart with classic poise and authority.</p>
                     </div>
 
-                    <div onclick="openItemModal('N / Nobility', 'House Pillar · N', 'Refined poise and high-standard finish from collar pin to embroidery.', './shirt.jpg', 'PILLAR N', 'Quiet authority & refined finish')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('N / Nobility', 'House Pillar · N', 'Refined poise and high-standard finish from collar pin to embroidery.', './shirt.jpg', 'PILLAR N', 'Quiet authority & refined finish', 'SPEC-N')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">N</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Nobility</h3>
@@ -368,7 +367,7 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 4: DESIGNING MACHINE LAB (SHOWCASE ONLY — NOT FOR SALE) ================= -->
+        <!-- ================= VIEW 4: DESIGNING MACHINE LAB ================= -->
         <section id="view-machine" class="view-section py-20 px-4 md:px-8">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-14">
@@ -394,7 +393,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div onclick="openItemModal('QX-01 Monolith Overcoat', 'SERIES 01 · CAPSULE', 'Structured heavy wool silhouette featuring custom hardware and numbered inner tag.', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90', '$480', 'Standing tall against cold winds & noise')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
+                    <div onclick="openItemModal('QX-01 Monolith Overcoat', 'SERIES 01 · CAPSULE', 'Structured heavy wool silhouette featuring custom hardware and numbered inner tag.', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90', '$480', 'Standing tall against cold winds & noise', 'QX-01')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
                         <div class="h-72 bg-atelier-bg relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90" alt="Monolith Overcoat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
@@ -407,7 +406,7 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('QX-02 Vanguard Cipher Hoodie', 'SERIES 01 · CAPSULE', 'Heavyweight loopback cotton with tonal QVAXZION embroidery and double-lined hood.', 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90', '$250', 'Everyday armor built with street resilience')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
+                    <div onclick="openItemModal('QX-02 Vanguard Cipher Hoodie', 'SERIES 01 · CAPSULE', 'Heavyweight loopback cotton with tonal QVAXZION embroidery and double-lined hood.', 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90', '$250', 'Everyday armor built with street resilience', 'QX-02')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
                         <div class="h-72 bg-atelier-bg relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90" alt="Vanguard Cipher Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
@@ -420,7 +419,7 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('QX-03 Apex Silk Trousers', 'SERIES 01 · CAPSULE', 'High-waist architectural pleating designed with fine technical twill weave.', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90', '$320', 'Clean lines for sharp movement')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
+                    <div onclick="openItemModal('QX-03 Apex Silk Trousers', 'SERIES 01 · CAPSULE', 'High-waist architectural pleating designed with fine technical twill weave.', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90', '$320', 'Clean lines for sharp movement', 'QX-03')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
                         <div class="h-72 bg-atelier-bg relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90" alt="Apex Silk Trousers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
@@ -448,7 +447,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div onclick="openItemModal('BOOT-01 Vanguard Combat Boot', '1-OF-1', 'Full-grain matte calfskin leather boot with reinforced toe structure.', 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1200&q=90', '$650', 'Grounded step & heavy-duty stance')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('BOOT-01 Vanguard Combat Boot', '1-OF-1', 'Full-grain matte calfskin leather boot with reinforced toe structure.', 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1200&q=90', '$650', 'Grounded step & heavy-duty stance', 'BOOT-01')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1200&q=90" alt="Vanguard Combat Boot" class="w-full h-full object-cover">
                         </div>
@@ -457,7 +456,7 @@
                         <span class="text-xs font-mono text-atelier-gold">$650</span>
                     </div>
 
-                    <div onclick="openItemModal('BOOT-02 Monolith Platform Derby', '1-OF-1', 'Sculptural leather derby with stacked sole and welted bespoke construction.', 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=90', '$590', 'Elevated silhouette with clean poise')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('BOOT-02 Monolith Platform Derby', '1-OF-1', 'Sculptural leather derby with stacked sole and welted bespoke construction.', 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=90', '$590', 'Elevated silhouette with clean poise', 'BOOT-02')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=90" alt="Monolith Platform Derby" class="w-full h-full object-cover">
                         </div>
@@ -466,7 +465,7 @@
                         <span class="text-xs font-mono text-atelier-gold">$590</span>
                     </div>
 
-                    <div onclick="openItemModal('BOOT-03 Cipher Tactical Sneaker-Boot', '1-OF-1', 'High-top architectural boot silhouette featuring clean sculpted panels.', 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1200&q=90', '$520', 'Street agility meets tailored structure')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('BOOT-03 Cipher Tactical Sneaker-Boot', '1-OF-1', 'High-top architectural boot silhouette featuring clean sculpted panels.', 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1200&q=90', '$520', 'Street agility meets tailored structure', 'BOOT-03')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1200&q=90" alt="Cipher Tactical Sneaker-Boot" class="w-full h-full object-cover">
                         </div>
@@ -490,7 +489,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div onclick="openItemModal('Bespoke Runway Overcoat', 'COMMISSION #01 · DELIVERED', 'Custom heavy wool overcoat with hand-forged hardware.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('Bespoke Runway Overcoat', 'COMMISSION #01 · DELIVERED', 'Custom heavy wool overcoat with hand-forged hardware.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission', 'JOB-01')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90" alt="Bespoke Runway Overcoat" class="w-full h-full object-cover">
                         </div>
@@ -500,7 +499,7 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('Architectural Cipher Suit', 'COMMISSION #02 · DELIVERED', 'Tailored blazer and pleated trousers.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('Architectural Cipher Suit', 'COMMISSION #02 · DELIVERED', 'Tailored blazer and pleated trousers.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission', 'JOB-02')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90" alt="Architectural Cipher Suit" class="w-full h-full object-cover">
                         </div>
@@ -510,7 +509,7 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('Series 01 Leather Harness', 'COMMISSION #03 · DELIVERED', 'Hand-riveted leather harness with gold hardware.', 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('Series 01 Leather Harness', 'COMMISSION #03 · DELIVERED', 'Hand-riveted leather harness with gold hardware.', 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission', 'JOB-03')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90" alt="Series 01 Leather Harness" class="w-full h-full object-cover">
                         </div>
@@ -557,6 +556,7 @@
                             <div>
                                 <label class="block text-xs font-cinzel tracking-[0.15em] uppercase text-atelier-goldLight/80 mb-2">Select Piece / Service</label>
                                 <select id="serviceSelect" class="w-full bg-atelier-bg border border-atelier-border px-4 py-3 text-sm text-white">
+                                    <option value="QVAXZION Belted Crest Wrap Jacket — Green ($1,280)">QVAXZION Belted Crest Wrap Jacket — Green ($1,280)</option>
                                     <option value="The Sovereign Emerald Pinstripe Suit ($1,450)">The Sovereign Emerald Pinstripe Suit ($1,450)</option>
                                     <option value="Monogrammed Atelier Shirt & Valet Set ($480)">Monogrammed Atelier Shirt &amp; Valet Set ($480)</option>
                                     <option value="QX-01 Monolith Overcoat ($480)">QX-01 Monolith Overcoat ($480)</option>
@@ -668,7 +668,7 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 10: MAISON ADMIN STUDIO (SINGLE SHARED STUDIO ACCOUNT) ================= -->
+        <!-- ================= VIEW 10: MAISON ADMIN STUDIO ================= -->
         <section id="view-admin" class="view-section py-20 px-4 md:px-8">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-10">
@@ -710,7 +710,7 @@
                             </div>
                             <div>
                                 <label class="block text-[10px] font-cinzel uppercase tracking-widest text-atelier-goldLight/80 mb-1">Image File or URL</label>
-                                <input type="text" id="admImg" placeholder="./Mh1.jpg or ./suit.jpg" class="w-full bg-atelier-bg border border-atelier-border px-3.5 py-2.5 text-sm text-white">
+                                <input type="text" id="admImg" placeholder="./Green.jpg or ./Mh1.jpg" class="w-full bg-atelier-bg border border-atelier-border px-3.5 py-2.5 text-sm text-white">
                             </div>
                         </div>
                         <div>
@@ -744,11 +744,14 @@
                 <h3 class="font-cinzel text-sm font-bold tracking-widest text-atelier-gold uppercase">Collector Shortlist</h3>
                 <button onclick="toggleShortlistDrawer()" class="text-xs font-cinzel text-atelier-goldLight hover:text-white">✕</button>
             </div>
-            <div id="shortlistItemsBox" class="space-y-3 max-h-[65vh] overflow-y-auto"></div>
+            <div id="shortlistItemsBox" class="space-y-3 max-h-[60vh] overflow-y-auto"></div>
         </div>
         <div class="pt-4 border-t border-atelier-border space-y-2">
             <button onclick="sendShortlistWhatsApp()" class="w-full py-3 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.15em] uppercase hover:bg-atelier-goldLight transition-all">
                 Inquire Shortlist on WhatsApp
+            </button>
+            <button onclick="copyShortlistSummary()" class="w-full py-2 border border-atelier-gold/70 text-[10px] font-cinzel uppercase tracking-widest text-atelier-gold hover:bg-atelier-gold hover:text-atelier-bg transition-all">
+                Copy Inquiry Text
             </button>
             <button onclick="clearShortlist()" class="w-full py-2 border border-atelier-border text-[10px] font-cinzel uppercase tracking-widest text-atelier-goldLight/70 hover:border-atelier-gold">
                 Clear Shortlist
@@ -764,7 +767,10 @@
                 <p id="modalSubtitle" class="text-[10px] font-cinzel tracking-[0.25em] text-atelier-gold uppercase"></p>
                 <span id="modalPriceTag" class="font-cinzel text-sm font-bold text-atelier-goldLight"></span>
             </div>
-            <h3 id="modalTitle" class="font-cinzel text-xl md:text-2xl font-bold text-white mb-2"></h3>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <h3 id="modalTitle" class="font-cinzel text-xl md:text-2xl font-bold text-white"></h3>
+                <span id="modalSpecCode" class="px-2.5 py-0.5 border border-atelier-border bg-atelier-bg text-[10px] font-mono text-atelier-gold"></span>
+            </div>
             <p id="modalMeaningLine" class="font-editorial italic text-base text-atelier-gold mb-4"></p>
 
             <div class="h-72 mb-4 border border-atelier-border overflow-hidden relative bg-atelier-bg cursor-zoom-in" onclick="openZoomViewer(activeModalItem.imgSrc, activeModalItem.fallbackSrc, activeModalItem.title)">
@@ -782,8 +788,8 @@
                 <button onclick="addActiveModalToShortlist()" class="w-full py-3.5 border border-atelier-gold text-atelier-gold font-cinzel font-bold text-xs tracking-[0.15em] uppercase hover:bg-atelier-gold hover:text-atelier-bg transition-all">
                     + Add Shortlist
                 </button>
-                <button onclick="closeUniversalModal(); switchView('booking');" class="w-full py-3.5 border border-atelier-border text-atelier-goldLight font-cinzel font-bold text-xs tracking-[0.15em] uppercase hover:border-atelier-gold transition-all">
-                    Book Fitting
+                <button onclick="copySingleInquiry()" class="w-full py-3.5 border border-atelier-border text-atelier-goldLight font-cinzel font-bold text-xs tracking-[0.15em] uppercase hover:border-atelier-gold transition-all">
+                    Copy Piece Info
                 </button>
             </div>
         </div>
@@ -810,7 +816,7 @@
         </div>
     </div>
 
-    <!-- FOOTER (CONTAINS DISCREET STUDIO ACCESS FOR OWNER/TEAM) -->
+    <!-- FOOTER -->
     <footer class="py-16 px-4 md:px-8 bg-atelier-bg border-t border-atelier-border">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
             <div>
@@ -845,14 +851,26 @@
 
     <script>
         const QVAXZION_WHATSAPP = "2347078503793";
-        let activeModalItem = { title: "", price: "", subtitle: "", meaning: "", imgSrc: "", fallbackSrc: "" };
+        let activeModalItem = { title: "", price: "", subtitle: "", meaning: "", specCode: "", imgSrc: "", fallbackSrc: "" };
         let currentZoomScale = 1;
         let activeQuickFilter = "all";
         let collectorShortlist = JSON.parse(localStorage.getItem("qvaxzion_shortlist_v1")) || [];
 
         const INITIAL_PIECES = [
             {
+                id: "piece-green-wrap",
+                specCode: "QVAX-001",
+                title: "Sovereign Emerald Belted Crest Jacket",
+                status: "available",
+                price: "$1,280",
+                meaning: "Meaning: Bound & Balanced — structured wrap silhouette with gold crest & tie.",
+                image: "./Green.jpg",
+                fallback: "./green.jpg",
+                description: "Tailored emerald green wrap-collar jacket featuring gold crest embroidery on the chest, metallic buttons, flared cuffs with gold trim, and a waist tie finished with gold tips. Strictly 1-of-1."
+            },
+            {
                 id: "piece-emerald-suit",
+                specCode: "QVAX-002",
                 title: "The Sovereign Emerald Pinstripe Suit",
                 status: "available",
                 price: "$1,450",
@@ -863,6 +881,7 @@
             },
             {
                 id: "piece-white-shirt-set",
+                specCode: "QVAX-003",
                 title: "Monogrammed Atelier Shirt & Valet Set",
                 status: "available",
                 price: "$480",
@@ -873,6 +892,7 @@
             },
             {
                 id: "piece-nocturne-coat",
+                specCode: "QVAX-004",
                 title: "Nocturne Architectural Trench Coat",
                 status: "coming-soon",
                 price: "$1,650",
@@ -883,16 +903,18 @@
             },
             {
                 id: "piece-obsidian-tux",
+                specCode: "QVAX-005",
                 title: "Obsidian Bullion Evening Tuxedo (1-of-1)",
                 status: "sold-out",
                 price: "$1,800 — SOLD",
                 meaning: "Meaning: Legacy Earned — a one-of-one work retired to its owner.",
-                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=95",
-                fallback: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=95",
+                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90",
+                fallback: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90",
                 description: "Claimed by a private collector. Hand-finished evening tuxedo permanently retired so no duplicate ever enters circulation."
             },
             {
                 id: "mach-mh1",
+                specCode: "LAB-MH1",
                 title: "MH1 · Garment Sewing & Stitch Station",
                 status: "machine",
                 price: "",
@@ -903,6 +925,7 @@
             },
             {
                 id: "mach-mh2",
+                specCode: "LAB-MH2",
                 title: "MH2 · Multi-Needle Embroidery Unit",
                 status: "machine",
                 price: "",
@@ -913,6 +936,7 @@
             },
             {
                 id: "mach-mh3",
+                specCode: "LAB-MH3",
                 title: "MH3 · Garment Print & Design Station",
                 status: "machine",
                 price: "",
@@ -923,10 +947,10 @@
             }
         ];
 
-        let maisonCatalog = JSON.parse(localStorage.getItem("qvaxzion_maison_catalog_v5")) || INITIAL_PIECES;
+        let maisonCatalog = JSON.parse(localStorage.getItem("qvaxzion_maison_catalog_v6")) || INITIAL_PIECES;
 
         function persistCatalog() {
-            localStorage.setItem("qvaxzion_maison_catalog_v5", JSON.stringify(maisonCatalog));
+            localStorage.setItem("qvaxzion_maison_catalog_v6", JSON.stringify(maisonCatalog));
             renderCatalogViews();
             renderAdminList();
         }
@@ -959,6 +983,7 @@
                 const safeDesc = item.description.replace(/'/g, "\\'");
                 const safePrice = (item.price || "").replace(/'/g, "\\'");
                 const safeMeaning = (item.meaning || "").replace(/'/g, "\\'");
+                const safeSpec = (item.specCode || "1-OF-1").replace(/'/g, "\\'");
 
                 const priceBadge = (!isMachine && item.price)
                     ? `<span class="absolute bottom-3 right-3 px-3 py-1 bg-atelier-bg/95 border border-atelier-gold text-xs font-cinzel font-bold text-atelier-gold">${item.price}</span>`
@@ -973,14 +998,17 @@
                                 <span class="absolute top-3 right-3 px-2 py-1 bg-atelier-bg/90 border border-atelier-border text-[9px] font-cinzel text-atelier-gold">🔍 ZOOM</span>
                                 ${priceBadge}
                             </div>
-                            <div onclick="openItemModal('${safeTitle}', '${statusLabel.text}', '${safeDesc}', '${item.image}', '${safePrice}', '${item.fallback}', '${safeMeaning}')" class="p-6 cursor-pointer">
-                                <h3 class="font-cinzel text-base font-bold tracking-wider text-white mb-1.5">${item.title}</h3>
+                            <div onclick="openItemModal('${safeTitle}', '${statusLabel.text}', '${safeDesc}', '${item.image}', '${safePrice}', '${item.fallback}', '${safeMeaning}', '${safeSpec}')" class="p-6 cursor-pointer">
+                                <div class="flex items-center justify-between gap-2 mb-1.5">
+                                    <h3 class="font-cinzel text-base font-bold tracking-wider text-white">${item.title}</h3>
+                                    <span class="text-[10px] font-mono text-atelier-gold/80 shrink-0">${item.specCode || "1-OF-1"}</span>
+                                </div>
                                 ${item.meaning ? `<p class="font-editorial italic text-sm text-atelier-gold mb-2.5">${item.meaning}</p>` : ""}
                                 <p class="text-xs text-atelier-goldLight/65 font-light leading-relaxed line-clamp-3">${item.description}</p>
                             </div>
                         </div>
                         <div class="px-6 pb-5 pt-3 border-t border-atelier-border/60 flex justify-between items-center">
-                            <button onclick="openItemModal('${safeTitle}', '${statusLabel.text}', '${safeDesc}', '${item.image}', '${safePrice}', '${item.fallback}', '${safeMeaning}')" class="text-[10px] text-atelier-gold font-cinzel tracking-widest uppercase hover:underline">
+                            <button onclick="openItemModal('${safeTitle}', '${statusLabel.text}', '${safeDesc}', '${item.image}', '${safePrice}', '${item.fallback}', '${safeMeaning}', '${safeSpec}')" class="text-[10px] text-atelier-gold font-cinzel tracking-widest uppercase hover:underline">
                                 ${isMachine ? "View Machine Story →" : "Meaning & Details →"}
                             </button>
                             ${!isMachine ? `<button onclick="addToShortlist('${item.id}')" class="text-[10px] font-cinzel uppercase tracking-widest text-atelier-goldLight/80 hover:text-atelier-gold">+ Shortlist</button>` : `<span class="text-[10px] font-mono text-atelier-goldLight/50">SHOWCASE</span>`}
@@ -994,14 +1022,13 @@
             document.getElementById("dynamicSoldOutGrid").innerHTML = maisonCatalog.filter(i => i.status === "sold-out").map(buildCard).join("") || `<p class="text-xs text-atelier-goldLight/60">Archive ready for completed 1-of-1 sales.</p>`;
             document.getElementById("dynamicMachineGrid").innerHTML = maisonCatalog.filter(i => i.status === "machine").map(buildCard).join("");
 
-            // Home search / filter box
             const query = (document.getElementById("catalogSearchInput")?.value || "").trim().toLowerCase();
             const resultsBox = document.getElementById("homeFilteredResults");
             const garmentsOnly = maisonCatalog.filter(i => i.status !== "machine");
             if (query || activeQuickFilter !== "all") {
                 const matched = garmentsOnly.filter(i => {
                     const statusMatch = activeQuickFilter === "all" || i.status === activeQuickFilter;
-                    const textMatch = !query || `${i.title} ${i.meaning || ""} ${i.description} ${i.price}`.toLowerCase().includes(query);
+                    const textMatch = !query || `${i.title} ${i.meaning || ""} ${i.description} ${i.price} ${i.specCode || ""}`.toLowerCase().includes(query);
                     return statusMatch && textMatch;
                 });
                 resultsBox.classList.remove("hidden");
@@ -1018,7 +1045,7 @@
             const item = maisonCatalog.find(i => i.id === itemId);
             if (!item) return;
             if (!collectorShortlist.some(s => s.id === item.id)) {
-                collectorShortlist.push({ id: item.id, title: item.title, price: item.price || "1-of-1" });
+                collectorShortlist.push({ id: item.id, title: item.title, price: item.price || "1-of-1", specCode: item.specCode || "1-OF-1" });
                 localStorage.setItem("qvaxzion_shortlist_v1", JSON.stringify(collectorShortlist));
             }
             renderShortlistUI();
@@ -1028,7 +1055,7 @@
             if (!activeModalItem.title) return;
             const id = activeModalItem.title.toLowerCase().replace(/[^a-z0-9]/g, "-");
             if (!collectorShortlist.some(s => s.id === id)) {
-                collectorShortlist.push({ id, title: activeModalItem.title, price: activeModalItem.price || "1-of-1" });
+                collectorShortlist.push({ id, title: activeModalItem.title, price: activeModalItem.price || "1-of-1", specCode: activeModalItem.specCode || "1-OF-1" });
                 localStorage.setItem("qvaxzion_shortlist_v1", JSON.stringify(collectorShortlist));
             }
             renderShortlistUI();
@@ -1056,11 +1083,23 @@
                 <div class="p-3 bg-atelier-bg border border-atelier-border flex items-center justify-between gap-2">
                     <div>
                         <p class="font-cinzel text-xs font-bold text-white">${s.title}</p>
-                        <p class="text-[11px] font-mono text-atelier-gold">${s.price}</p>
+                        <p class="text-[11px] font-mono text-atelier-gold">${s.specCode || "1-OF-1"} • ${s.price}</p>
                     </div>
                     <button onclick="removeShortlistItem('${s.id}')" class="text-[10px] font-mono text-red-300 uppercase">Remove</button>
                 </div>
             `).join("");
+        }
+        function copyShortlistSummary() {
+            if (!collectorShortlist.length) {
+                alert("Your shortlist is empty.");
+                return;
+            }
+            const text = "QVAXZION Shortlist Inquiry:\n" + collectorShortlist.map(s => `- [${s.specCode || "1-OF-1"}] ${s.title} (${s.price})`).join("\n");
+            navigator.clipboard?.writeText(text).then(() => alert("Shortlist inquiry copied."));
+        }
+        function copySingleInquiry() {
+            const text = `QVAXZION Piece Inquiry: [${activeModalItem.specCode || "1-OF-1"}] ${activeModalItem.title}${activeModalItem.price ? " — " + activeModalItem.price : ""}`;
+            navigator.clipboard?.writeText(text).then(() => alert("Piece details copied."));
         }
         function toggleShortlistDrawer(forceOpen = false) {
             const drawer = document.getElementById("shortlistDrawer");
@@ -1075,7 +1114,7 @@
                 alert("Add at least one piece to your shortlist first.");
                 return;
             }
-            const lines = collectorShortlist.map(s => `• ${s.title} (${s.price})`).join("%0A");
+            const lines = collectorShortlist.map(s => `• [${s.specCode || "1-OF-1"}] ${s.title} (${s.price})`).join("%0A");
             const msg = `Hello QVAXZION Atelier,%0A%0AI am inquiring about these shortlisted pieces:%0A${lines}`;
             window.open(`https://wa.me/${QVAXZION_WHATSAPP}?text=${msg}`, "_blank");
         }
@@ -1135,12 +1174,13 @@
             document.getElementById("photoZoomModal").classList.add("hidden");
         }
 
-        function openItemModal(title, subtitle, description, imgSrc, priceText = "", fallbackSrc = "", meaningLine = "") {
-            activeModalItem = { title, subtitle, price: priceText, meaning: meaningLine, imgSrc, fallbackSrc: fallbackSrc || imgSrc };
+        function openItemModal(title, subtitle, description, imgSrc, priceText = "", fallbackSrc = "", meaningLine = "", specCode = "") {
+            activeModalItem = { title, subtitle, price: priceText, meaning: meaningLine, specCode, imgSrc, fallbackSrc: fallbackSrc || imgSrc };
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalSubtitle').innerText = subtitle;
             document.getElementById('modalPriceTag').innerText = priceText;
             document.getElementById('modalMeaningLine').innerText = meaningLine;
+            document.getElementById('modalSpecCode').innerText = specCode || "1-OF-1";
             document.getElementById('modalBody').innerText = description;
             const modalImg = document.getElementById('modalImg');
             modalImg.src = imgSrc;
@@ -1152,7 +1192,7 @@
         }
         function inquireCurrentModalWhatsApp() {
             const info = activeModalItem.price ? `${activeModalItem.title} (${activeModalItem.price})` : activeModalItem.title;
-            const msg = `Hello QVAXZION Atelier,%0A%0AI am inquiring about: *${info}*%0A${activeModalItem.meaning || ""}`;
+            const msg = `Hello QVAXZION Atelier,%0A%0AI am inquiring about: *[${activeModalItem.specCode || "1-OF-1"}] ${info}*%0A${activeModalItem.meaning || ""}`;
             window.open(`https://wa.me/${QVAXZION_WHATSAPP}?text=${msg}`, '_blank');
         }
 
@@ -1175,15 +1215,18 @@
             const title = document.getElementById('admTitle').value.trim();
             const status = document.getElementById('admStatus').value;
             const rawPrice = document.getElementById('admPrice').value.trim();
-            const img = document.getElementById('admImg').value.trim() || "./Mh1.jpg";
+            const img = document.getElementById('admImg').value.trim() || "./Green.jpg";
             const description = document.getElementById('admDesc').value.trim();
 
             const price = status === "machine"
                 ? ""
                 : ((status === "sold-out" && rawPrice && !rawPrice.includes("SOLD")) ? `${rawPrice} — SOLD` : (rawPrice || "$0"));
 
+            const nextNum = String(maisonCatalog.length + 1).padStart(3, "0");
+
             maisonCatalog.unshift({
                 id: "qvax-" + Date.now(),
+                specCode: status === "machine" ? `LAB-${nextNum}` : `QVAX-${nextNum}`,
                 title,
                 status,
                 price,
@@ -1222,7 +1265,7 @@
             box.innerHTML = maisonCatalog.map(item => `
                 <div class="flex flex-wrap items-center justify-between gap-3 p-4 bg-atelier-bg border border-atelier-border">
                     <div>
-                        <p class="font-cinzel text-xs font-bold text-white">${item.title}</p>
+                        <p class="font-cinzel text-xs font-bold text-white">${item.title} <span class="text-atelier-gold font-mono">(${item.specCode || "1-OF-1"})</span></p>
                         <p class="text-[11px] text-atelier-gold font-mono">${item.status === "machine" ? "SHOWCASE (NOT FOR SALE)" : item.price} • ${item.status.toUpperCase()}</p>
                     </div>
                     <div class="flex items-center gap-2">
