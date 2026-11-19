@@ -45,9 +45,6 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
-        img {
-            image-rendering: auto;
-        }
         .font-cinzel { font-family: 'Cinzel', serif; }
         .font-editorial { font-family: 'Cormorant Garamond', serif; }
         .gold-gradient-text {
@@ -63,7 +60,6 @@
         .view-section.active { display: block; animation: fadeIn 0.35s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Left Side Navigation Active Styling */
         .side-nav-btn.active-side {
             background: linear-gradient(90deg, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.04) 100%);
             color: #F3E5AB !important;
@@ -100,7 +96,7 @@
     <!-- MOBILE LEFT DRAWER BACKDROP -->
     <div id="mobileDrawerBackdrop" onclick="closeMobileSidebar()" class="fixed inset-0 bg-black/75 z-40 hidden md:hidden"></div>
 
-    <!-- LEFT SIDE NAVIGATION RAIL (Desktop Fixed + Mobile Slide-In) -->
+    <!-- LEFT SIDE NAVIGATION RAIL -->
     <aside id="leftSidebar" class="fixed top-16 left-0 bottom-0 w-60 bg-atelier-surface border-r border-atelier-border z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 overflow-y-auto py-5 flex flex-col justify-between">
         <div>
             <div class="px-5 pb-4 mb-3 border-b border-atelier-border">
@@ -153,19 +149,19 @@
         </div>
     </aside>
 
-    <!-- MAIN CONTENT SHIFTED FOR LEFT SIDEBAR ON DESKTOP/TABLET -->
+    <!-- MAIN CONTENT -->
     <main class="pt-16 md:pl-60 min-h-screen">
 
         <!-- ================= VIEW 1: HOME (CREST ART SHOWCASE + SANCTUARIES) ================= -->
         <section id="view-home" class="view-section active">
-            <div class="relative py-8 px-4 md:px-8 overflow-hidden">
+            <div class="relative py-6 px-4 md:px-8 overflow-hidden">
                 <div class="max-w-6xl mx-auto relative z-10">
                     <!-- Signature Crest Painting Frame -->
-                    <div class="border border-atelier-gold/60 bg-atelier-surface shadow-[0_25px_80px_rgba(0,0,0,0.85)] overflow-hidden">
-                        <div class="relative bg-atelier-bg flex items-center justify-center cursor-zoom-in group" onclick="openZoomViewer('./crest.jpg', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1600&q=85', 'QVAXZION Sovereign Crest Art')">
-                            <img id="homeCrestArt" src="./crest.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1600&q=85'" alt="QVAXZION Crest Artwork" class="w-full max-h-[72vh] object-contain bg-atelier-bg block">
-                            <span class="absolute top-4 right-4 px-3 py-1.5 bg-atelier-bg/90 border border-atelier-gold text-[10px] font-cinzel tracking-widest uppercase text-atelier-gold">
-                                🔍 Tap Picture to Zoom Full View
+                    <div class="border border-atelier-gold/70 bg-atelier-surface shadow-[0_25px_80px_rgba(0,0,0,0.85)] overflow-hidden">
+                        <div class="relative bg-atelier-bg flex items-center justify-center cursor-zoom-in group" onclick="openZoomViewer('./cres.jpg', './crest.jpg', 'QVAXZION Sovereign Crest Art')">
+                            <img id="homeCrestArt" src="./cres.jpg" onerror="if(this.src.indexOf('crest.jpg')===-1){this.src='./crest.jpg';}else{this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1600&q=95';}" alt="QVAXZION Sovereign Crest Art" class="w-full max-h-[72vh] object-contain bg-atelier-bg block">
+                            <span class="absolute top-4 right-4 px-3 py-1.5 bg-atelier-bg/95 border border-atelier-gold text-[10px] font-cinzel tracking-widest uppercase text-atelier-gold">
+                                🔍 Tap Crest to Zoom Full View
                             </span>
                         </div>
 
@@ -211,9 +207,9 @@
             </div>
 
             <!-- Welcome Hub -->
-            <section class="py-16 px-4 md:px-8 bg-atelier-surface border-t border-atelier-border">
+            <section class="py-14 px-4 md:px-8 bg-atelier-surface border-t border-atelier-border">
                 <div class="max-w-6xl mx-auto">
-                    <div class="text-center max-w-2xl mx-auto mb-12">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
                         <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Architectural Navigation</p>
                         <h2 class="font-cinzel text-2xl md:text-3xl font-bold tracking-wider text-white">Explore The Sanctuaries</h2>
                     </div>
@@ -221,7 +217,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div onclick="switchView('available')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
                             <div class="h-64 bg-atelier-bg overflow-hidden relative">
-                                <img src="./suit.jpg" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1000&q=90'" alt="Available Creations" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                                <img src="./suit.jpg" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=90'" alt="Available Creations" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="p-6 border-t border-atelier-border">
                                 <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">01 / Ready to Commission</span>
@@ -233,19 +229,19 @@
 
                         <div onclick="switchView('machine')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
                             <div class="h-64 bg-atelier-bg overflow-hidden relative">
-                                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=90" alt="Designing Machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=90" alt="Designing Machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="p-6 border-t border-atelier-border">
-                                <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">02 / Technology &amp; Craft</span>
+                                <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">02 / Garment &amp; Tailoring Tech</span>
                                 <h3 class="font-cinzel text-lg font-bold text-white mb-2">The Designing Machine Lab</h3>
-                                <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-4">Industrial lockstitch rigs, multi-head bullion crest embroidery machines, lasting benches, and laser cutters.</p>
+                                <p class="text-xs text-atelier-goldLight/60 font-light leading-relaxed mb-4">Industrial garment sewing machines, embroidery heads, pattern cutting, and tailoring tools.</p>
                                 <span class="text-xs font-cinzel tracking-widest text-atelier-gold group-hover:underline">Enter Machine Lab →</span>
                             </div>
                         </div>
 
                         <div onclick="switchView('sold-out')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
                             <div class="h-64 bg-atelier-bg overflow-hidden relative">
-                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=90" alt="Sold Out Archive" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90" alt="Sold Out Archive" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="p-6 border-t border-atelier-border">
                                 <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">03 / Retired 1-of-1 Works</span>
@@ -267,7 +263,7 @@
                         <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Active 1-of-1 Commissions</p>
                         <h2 class="font-cinzel text-3xl md:text-4xl font-bold tracking-wider text-white">Available Pieces</h2>
                     </div>
-                    <p class="text-xs text-atelier-goldLight/60 mt-3 md:mt-0">Tap any card to inspect details or tap its photo to zoom full-screen.</p>
+                    <p class="text-xs text-atelier-goldLight/60 mt-3 md:mt-0">Tap any photo to zoom full-screen or tap the card for details &amp; WhatsApp inquiry.</p>
                 </div>
                 <div id="dynamicAvailableGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
@@ -311,7 +307,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div onclick="openItemModal('Q / Quality', 'Material Sovereignty', 'Uncompromising material integrity. Sourcing only world-class heavyweight wools, velvet, and fine cotton twills.', 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=90', 'PILLAR Q')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('Q / Quality', 'Material Sovereignty', 'Uncompromising material integrity. Sourcing only world-class heavyweight wools, velvet, and fine cotton twills.', 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=90', 'PILLAR Q')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">Q</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Quality</h3>
@@ -319,7 +315,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Uncompromising material integrity across every garment, stitch, and custom hardware piece.</p>
                     </div>
 
-                    <div onclick="openItemModal('V / Vision', 'Aesthetic Foresight', 'Defining bold silhouettes and classic luxury presentation before mainstream retail catches up.', 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=90', 'PILLAR V')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('V / Vision', 'Aesthetic Foresight', 'Defining bold silhouettes and classic luxury presentation before mainstream retail catches up.', 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=90', 'PILLAR V')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">V</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Vision</h3>
@@ -327,7 +323,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Sculptural silhouettes and commanding visual authority built for the modern sovereign collector.</p>
                     </div>
 
-                    <div onclick="openItemModal('A / Autonomy', 'Complete Creative Freedom', 'Operating independently from seasonal mass-market trends or external compromises.', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=90', 'PILLAR A')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('A / Autonomy', 'Complete Creative Freedom', 'Operating independently from seasonal mass-market trends or external compromises.', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90', 'PILLAR A')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">A</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Autonomy</h3>
@@ -335,7 +331,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Full creative command over every design release, price valuation, and 1-of-1 edition.</p>
                     </div>
 
-                    <div onclick="openItemModal('X / Variable', 'Individual Signature', 'Distinctive individual character tailored to collectors who reject ordinary uniformity.', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=90', 'PILLAR X')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('X / Variable', 'Individual Signature', 'Distinctive individual character tailored to collectors who reject ordinary uniformity.', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90', 'PILLAR X')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">X</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Variable</h3>
@@ -343,7 +339,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Every 1-of-1 piece carries its own signature craft, embroidery, and tailored fit.</p>
                     </div>
 
-                    <div onclick="openItemModal('Z / Zero', 'Pristine Foundations', 'Built on a clean, sharp foundation with zero clutter or recycled mediocrity.', 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=90', 'PILLAR Z')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('Z / Zero', 'Pristine Foundations', 'Built on a clean, sharp foundation with zero clutter or recycled mediocrity.', 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=90', 'PILLAR Z')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">Z</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Zero</h3>
@@ -351,7 +347,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Zero duplicates once sold—every claimed piece moves permanently into the Sold Out Archive.</p>
                     </div>
 
-                    <div onclick="openItemModal('I / Innovation', 'Technical Precision', 'Precision tailoring paired with modern industrial machinery and sharp digital presentation.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=90', 'PILLAR I')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('I / Innovation', 'Technical Precision', 'Precision tailoring paired with modern industrial garment machinery and sharp presentation.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90', 'PILLAR I')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">I</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Innovation</h3>
@@ -359,7 +355,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Combining classic tailoring discipline with contemporary studio equipment and direct concierge access.</p>
                     </div>
 
-                    <div onclick="openItemModal('O / Originality', 'Structural Purity', 'Original crest identity, proprietary Q hardware, and unmistakable presence.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=90', 'PILLAR O')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('O / Originality', 'Structural Purity', 'Original crest identity, proprietary Q hardware, and unmistakable presence.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90', 'PILLAR O')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">O</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Originality</h3>
@@ -367,7 +363,7 @@
                         <p class="text-xs text-atelier-goldLight/70 leading-relaxed font-light">Original house identity designed to stand apart with classic poise and authority.</p>
                     </div>
 
-                    <div onclick="openItemModal('N / Nobility', 'Quiet Elegance', 'Refined poise and high-standard finish from collar pin to bullion lapel embroidery.', 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1000&q=90', 'PILLAR N')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
+                    <div onclick="openItemModal('N / Nobility', 'Quiet Elegance', 'Refined poise and high-standard finish from collar pin to bullion lapel embroidery.', 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90', 'PILLAR N')" class="p-7 bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all cursor-pointer">
                         <div class="flex items-center space-x-4 mb-3">
                             <span class="font-cinzel text-3xl font-bold gold-gradient-text">N</span>
                             <h3 class="font-cinzel text-xl font-bold text-white tracking-wider">Nobility</h3>
@@ -378,13 +374,13 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 4: DESIGNING MACHINE & LAB ================= -->
+        <!-- ================= VIEW 4: DESIGNING MACHINE & LAB (REAL CLOTHING & SEWING MACHINERY) ================= -->
         <section id="view-machine" class="view-section py-20 px-4 md:px-8">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center max-w-2xl mx-auto mb-14">
-                    <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Industrial Precision</p>
+                    <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Garment &amp; Tailoring Machinery</p>
                     <h2 class="font-cinzel text-3xl md:text-4xl font-bold tracking-wider text-white">The Designing Machine Lab</h2>
-                    <p class="text-xs text-atelier-goldLight/60 mt-3">Real industrial garment sewing, multi-head bullion embroidery, and leather lasting equipment.</p>
+                    <p class="text-xs text-atelier-goldLight/60 mt-3">Industrial sewing machines, multi-needle embroidery stations, and bespoke cloth-cutting equipment used to build QVAXZION garments.</p>
                 </div>
                 <div id="dynamicMachineGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
@@ -402,9 +398,9 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div onclick="openItemModal('QX-01 Monolith Overcoat', 'SERIES 01 · LIMITED', 'Structured heavy wool silhouette featuring laser-etched custom hardware, 480GSM virgin wool blend, and numbered inner tag.', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=90', '$480')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
+                    <div onclick="openItemModal('QX-01 Monolith Overcoat', 'SERIES 01 · LIMITED', 'Structured heavy wool silhouette featuring custom hardware, virgin wool blend, and numbered inner tag.', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90', '$480')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
                         <div class="h-72 bg-atelier-bg relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=90" alt="Monolith Overcoat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90" alt="Monolith Overcoat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -415,9 +411,9 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('QX-02 Vanguard Cipher Hoodie', 'SERIES 01 · CAPSULE', 'Heavyweight loopback cotton with metallic tonal QVAXZION embroidery and double-lined architectural hood.', 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=90', '$250')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
+                    <div onclick="openItemModal('QX-02 Vanguard Cipher Hoodie', 'SERIES 01 · CAPSULE', 'Heavyweight loopback cotton with tonal QVAXZION embroidery and double-lined hood.', 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90', '$250')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
                         <div class="h-72 bg-atelier-bg relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=90" alt="Vanguard Cipher Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90" alt="Vanguard Cipher Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -428,9 +424,9 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('QX-03 Apex Silk Trousers', 'SERIES 01 · ARCHIVAL', 'High-waist architectural pleating designed with raw Japanese technical silk-twill weave.', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=90', '$320')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
+                    <div onclick="openItemModal('QX-03 Apex Silk Trousers', 'SERIES 01 · ARCHIVAL', 'High-waist architectural pleating designed with fine technical twill weave.', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90', '$320')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
                         <div class="h-72 bg-atelier-bg relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=90" alt="Apex Silk Trousers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90" alt="Apex Silk Trousers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -456,27 +452,27 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div onclick="openItemModal('BOOT-01 Vanguard Combat Boot', '1-OF-1', 'Full-grain matte calfskin leather with reinforced steel toe capping and custom titanium hardware.', 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1000&q=90', '$650')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('BOOT-01 Vanguard Combat Boot', '1-OF-1', 'Full-grain matte calfskin leather boot with reinforced toe structure and custom hardware.', 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1200&q=90', '$650')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1000&q=90" alt="Vanguard Combat Boot" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1200&q=90" alt="Vanguard Combat Boot" class="w-full h-full object-cover">
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white mb-2">Vanguard Combat Boot</h3>
                         <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Full-grain matte calfskin leather with reinforced toe structure.</p>
                         <span class="text-xs font-mono text-atelier-gold">$650</span>
                     </div>
 
-                    <div onclick="openItemModal('BOOT-02 Monolith Platform Derby', '1-OF-1', 'Sculptural stacked leather sole with Goodyear welt construction and matte black leather finish.', 'https://images.unsplash.com/photo-1533867617858-e7d97e0afd8b?auto=format&fit=crop&w=1000&q=90', '$590')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('BOOT-02 Monolith Platform Derby', '1-OF-1', 'Sculptural leather derby with stacked sole and welted bespoke construction.', 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=90', '$590')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1533867617858-e7d97e0afd8b?auto=format&fit=crop&w=1000&q=90" alt="Monolith Platform Derby" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=90" alt="Monolith Platform Derby" class="w-full h-full object-cover">
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white mb-2">Monolith Platform Derby</h3>
-                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Stacked leather sole with welted bespoke construction.</p>
+                        <p class="text-xs text-atelier-goldLight/60 font-light mb-4">Sculptural leather derby with stacked sole and welted construction.</p>
                         <span class="text-xs font-mono text-atelier-gold">$590</span>
                     </div>
 
-                    <div onclick="openItemModal('BOOT-03 Cipher Tactical Sneaker-Boot', '1-OF-1', 'High-top architectural silhouette featuring technical panels and clean sculpted lines.', 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=90', '$520')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('BOOT-03 Cipher Tactical Sneaker-Boot', '1-OF-1', 'High-top architectural boot silhouette featuring clean sculpted panels.', 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1200&q=90', '$520')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=90" alt="Cipher Tactical Sneaker-Boot" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1200&q=90" alt="Cipher Tactical Sneaker-Boot" class="w-full h-full object-cover">
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white mb-2">Cipher Tactical Sneaker-Boot</h3>
                         <p class="text-xs text-atelier-goldLight/60 font-light mb-4">High-top sculpted boot with clean architectural paneling.</p>
@@ -498,9 +494,9 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div onclick="openItemModal('Bespoke Runway Overcoat', 'COMMISSION #01 · DELIVERED', 'Custom heavy wool overcoat with hand-forged bronze hardware.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=90', 'DELIVERED')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('Bespoke Runway Overcoat', 'COMMISSION #01 · DELIVERED', 'Custom heavy wool overcoat with hand-forged bronze hardware.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90', 'DELIVERED')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=90" alt="Bespoke Runway Overcoat" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90" alt="Bespoke Runway Overcoat" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6 border-t border-atelier-border">
                             <h3 class="font-cinzel text-base font-bold text-white mb-2">Bespoke Runway Overcoat</h3>
@@ -508,9 +504,9 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('Architectural Cipher Suit', 'COMMISSION #02 · DELIVERED', 'Double-breasted tailored blazer and pleated trousers.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=90', 'DELIVERED')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('Architectural Cipher Suit', 'COMMISSION #02 · DELIVERED', 'Double-breasted tailored blazer and pleated trousers.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90', 'DELIVERED')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=90" alt="Architectural Cipher Suit" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90" alt="Architectural Cipher Suit" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6 border-t border-atelier-border">
                             <h3 class="font-cinzel text-base font-bold text-white mb-2">Architectural Cipher Suit</h3>
@@ -518,9 +514,9 @@
                         </div>
                     </div>
 
-                    <div onclick="openItemModal('Series 01 Leather Harness', 'COMMISSION #03 · DELIVERED', 'Hand-riveted calfskin harness with gold hardware.', 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1000&q=90', 'DELIVERED')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
+                    <div onclick="openItemModal('Series 01 Leather Harness', 'COMMISSION #03 · DELIVERED', 'Hand-riveted calfskin harness with gold hardware.', 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90', 'DELIVERED')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
                         <div class="h-64 bg-atelier-bg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1000&q=90" alt="Series 01 Leather Harness" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90" alt="Series 01 Leather Harness" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6 border-t border-atelier-border">
                             <h3 class="font-cinzel text-base font-bold text-white mb-2">Series 01 Leather Harness</h3>
@@ -773,7 +769,7 @@
         </div>
     </div>
 
-    <!-- PURE FULL-IMAGE ZOOM VIEWER (TAP IMAGE TO ZOOM IN UP TO 3X) -->
+    <!-- PURE FULL-IMAGE ZOOM VIEWER -->
     <div id="photoZoomModal" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-lg hidden flex flex-col justify-between p-4">
         <div class="flex items-center justify-between gap-3 border-b border-atelier-border pb-3">
             <span id="zoomCaption" class="font-cinzel text-xs md:text-sm tracking-widest text-atelier-gold uppercase truncate"></span>
@@ -870,38 +866,38 @@
                 description: "Acquired by a private collector. Hand-embroidered peak-lapel evening tuxedo in midnight barathea wool. Permanently retired from production."
             },
             {
-                id: "mach-lockstitch",
-                title: "Industrial Lockstitch & Walking-Foot Rig",
+                id: "mach-sewing-station",
+                title: "Industrial Lockstitch & Garment Sewing Rig",
                 status: "machine",
-                price: "SPEC 01",
-                image: "https://images.unsplash.com/photo-1605289982774-9a6fef564df8?auto=format&fit=crop&w=1400&q=95",
-                fallback: "https://images.unsplash.com/photo-1605289982774-9a6fef564df8?auto=format&fit=crop&w=1400&q=95",
-                description: "Servo-driven compound feed industrial sewing station engineered for heavyweight velvet, layered canvas interlinings, and razor-straight topstitching."
+                price: "SEWING RIG 01",
+                image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=95",
+                fallback: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1400&q=95",
+                description: "High-precision garment construction & tailoring station used to stitch heavy velvet suits, structured overcoats, and crisp dress shirts with clean seam tension."
             },
             {
-                id: "mach-embroidery",
-                title: "Multi-Head Bullion & Crest Embroidery Unit",
+                id: "mach-tailoring-studio",
+                title: "Bespoke Pattern Cutting & Garment Rail Unit",
                 status: "machine",
-                price: "SPEC 02",
-                image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=95",
-                fallback: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=95",
-                description: "Precision computerized embroidery rig executing intricate QVAXZION heraldic crests and metallic bullion threadwork cleanly."
+                price: "ATELIER LAB 02",
+                image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1400&q=95",
+                fallback: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=95",
+                description: "Dedicated clothing design & finishing bay where custom patterns, fabric drape tests, and 1-of-1 garment fittings are executed."
             },
             {
-                id: "mach-lasting",
-                title: "Footwear Lasting & Bell-Skiving Bench",
+                id: "mach-fabric-finishing",
+                title: "Textile Pressing, Steaming & Trim Bench",
                 status: "machine",
-                price: "SPEC 03",
-                image: "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=1400&q=95",
-                fallback: "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=1400&q=95",
-                description: "Leather bell-skiving and hydraulic sole-press equipment used to shape seamless 1-of-1 footwear uppers and welted outsoles."
+                price: "FINISHING 03",
+                image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1400&q=95",
+                fallback: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1400&q=95",
+                description: "Garment finishing & steam-shaping station for setting sharp lapels, clean shirt plackets, and presentation-ready 1-of-1 pieces."
             }
         ];
 
-        let maisonCatalog = JSON.parse(localStorage.getItem("qvaxzion_maison_catalog_v2")) || INITIAL_PIECES;
+        let maisonCatalog = JSON.parse(localStorage.getItem("qvaxzion_maison_catalog_v3")) || INITIAL_PIECES;
 
         function persistCatalog() {
-            localStorage.setItem("qvaxzion_maison_catalog_v2", JSON.stringify(maisonCatalog));
+            localStorage.setItem("qvaxzion_maison_catalog_v3", JSON.stringify(maisonCatalog));
             renderCatalogViews();
             renderAdminList();
         }
@@ -912,7 +908,7 @@
                     "available": { text: "AVAILABLE", cls: "text-emerald-300 border-emerald-700 bg-emerald-950/90" },
                     "coming-soon": { text: "COMING SOON", cls: "text-amber-300 border-amber-700 bg-amber-950/90" },
                     "sold-out": { text: "SOLD OUT", cls: "text-red-300 border-red-800 bg-red-950/90" },
-                    "machine": { text: "ATELIER MACHINE", cls: "text-atelier-gold border-atelier-gold bg-atelier-bg/95" }
+                    "machine": { text: "CLOTHING LAB", cls: "text-atelier-gold border-atelier-gold bg-atelier-bg/95" }
                 }[item.status] || { text: "1-OF-1", cls: "text-atelier-gold border-atelier-border bg-atelier-bg/95" };
 
                 const safeTitle = item.title.replace(/'/g, "\\'");
@@ -947,12 +943,10 @@
             document.getElementById("dynamicMachineGrid").innerHTML = maisonCatalog.filter(i => i.status === "machine").map(buildCard).join("");
         }
 
-        // LEFT SIDEBAR MOBILE CONTROLS
         function toggleMobileSidebar() {
             const side = document.getElementById("leftSidebar");
             const backdrop = document.getElementById("mobileDrawerBackdrop");
-            const isClosed = side.classList.contains("-translate-x-full");
-            if (isClosed) {
+            if (side.classList.contains("-translate-x-full")) {
                 side.classList.remove("-translate-x-full");
                 backdrop.classList.remove("hidden");
             } else {
@@ -968,7 +962,6 @@
             closeMobileSidebar();
         }
 
-        // MULTI-VIEW ROUTER WITH LEFT SIDEBAR ACTIVE INDICATOR
         function switchView(viewId) {
             document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
             const target = document.getElementById('view-' + viewId);
@@ -981,11 +974,10 @@
             if (activeSide) activeSide.classList.add('active-side');
         }
 
-        // FULL-SCREEN ZOOM VIEWER
         function openZoomViewer(imgSrc, fallbackSrc, caption) {
             const target = document.getElementById("zoomTargetImg");
             target.src = imgSrc;
-            target.onerror = () => { target.src = fallbackSrc; };
+            target.onerror = () => { target.src = fallbackSrc || "./crest.jpg"; };
             document.getElementById("zoomCaption").textContent = caption || "QVAXZION High-Resolution Inspection";
             setPhotoZoom(1);
             document.getElementById("photoZoomModal").classList.remove("hidden");
@@ -1006,7 +998,6 @@
             document.getElementById("photoZoomModal").classList.add("hidden");
         }
 
-        // DETAIL MODAL
         function openItemModal(title, subtitle, description, imgSrc, priceText = "", fallbackSrc = "") {
             activeModalItem = { title, subtitle, price: priceText, imgSrc, fallbackSrc: fallbackSrc || imgSrc };
             document.getElementById('modalTitle').innerText = title;
@@ -1026,7 +1017,6 @@
             window.open(`https://wa.me/${QVAXZION_WHATSAPP}?text=${msg}`, '_blank');
         }
 
-        // ADMIN CONTROLS
         function unlockAdminPortal() {
             if (document.getElementById('adminPassInput').value === "QVAXZION2026") {
                 document.getElementById('adminGate').classList.add('hidden');
@@ -1102,7 +1092,6 @@
             a.click();
         }
 
-        // BOOKING & WHATSAPP
         function handleFittingBooking(event) {
             event.preventDefault();
             const name = document.getElementById('clientName').value.trim();
@@ -1141,7 +1130,6 @@
             window.open(`https://wa.me/${QVAXZION_WHATSAPP}?text=${message}`, '_blank');
         }
 
-        // VIP VAULT AUTH
         let currentMode = 'login';
         function switchTab(mode) {
             currentMode = mode;
