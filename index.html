@@ -161,23 +161,23 @@
                             </span>
                         </div>
 
-                        <div class="p-6 md:px-10 bg-gradient-to-r from-atelier-bg via-atelier-surface to-atelier-card border-t border-atelier-border flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                            <div>
-                                <p class="text-[11px] font-cinzel tracking-[0.35em] text-atelier-gold uppercase mb-1">
+                        <div class="p-6 md:px-8 md:py-7 bg-gradient-to-r from-atelier-bg via-atelier-surface to-atelier-card border-t border-atelier-border space-y-5">
+                            <div class="w-full">
+                                <p class="text-[11px] font-cinzel tracking-[0.25em] text-atelier-gold uppercase mb-2">
                                     QVAXZION &bull; /kwah-ZEE-on/ &bull; 1-of-1 Haute Couture
                                 </p>
-                                <p class="font-editorial italic text-xl md:text-2xl text-atelier-goldLight">
+                                <p class="font-editorial italic text-xl md:text-2xl text-atelier-goldLight leading-snug w-full">
                                     Zero history. Total autonomy. Every garment carries meaning, is numbered 1-of-1, and is retired once claimed.
                                 </p>
                             </div>
-                            <div class="flex flex-wrap gap-3 shrink-0">
-                                <button onclick="switchView('available')" class="px-5 py-3 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-xs tracking-[0.16em] uppercase hover:bg-atelier-goldLight transition-all">
+                            <div class="flex flex-wrap items-center gap-3 pt-1 border-t border-atelier-border/60">
+                                <button onclick="switchView('available')" class="px-4 py-2.5 bg-atelier-gold text-atelier-bg font-cinzel font-bold text-[11px] tracking-[0.14em] uppercase hover:bg-atelier-goldLight transition-all">
                                     Available Pieces
                                 </button>
-                                <button onclick="switchView('machine')" class="px-5 py-3 border border-atelier-gold text-atelier-gold font-cinzel font-bold text-xs tracking-[0.16em] uppercase hover:bg-atelier-gold hover:text-atelier-bg transition-all">
+                                <button onclick="switchView('machine')" class="px-4 py-2.5 border border-atelier-gold text-atelier-gold font-cinzel font-bold text-[11px] tracking-[0.14em] uppercase hover:bg-atelier-gold hover:text-atelier-bg transition-all">
                                     Machine Lab (BTS)
                                 </button>
-                                <button onclick="switchView('sold-out')" class="px-5 py-3 border border-atelier-border text-atelier-goldLight font-cinzel font-bold text-xs tracking-[0.16em] uppercase hover:border-atelier-gold transition-all">
+                                <button onclick="switchView('sold-out')" class="px-4 py-2.5 border border-atelier-border text-atelier-goldLight font-cinzel font-bold text-[11px] tracking-[0.14em] uppercase hover:border-atelier-gold transition-all">
                                     Sold Out Archive
                                 </button>
                             </div>
@@ -209,8 +209,8 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div onclick="switchView('available')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
-                            <div class="h-64 bg-atelier-bg overflow-hidden relative">
-                                <img src="./Green.jpg" onerror="if(this.src.indexOf('green.jpg')===-1){this.src='./green.jpg';}else{this.src='./suit.jpg';}" alt="Available Creations" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                            <div class="h-56 bg-atelier-bg overflow-hidden relative">
+                                <img src="./Green.jpg" onerror="if(this.src.indexOf('green.jpg')===-1){this.src='./green.jpg';}else{this.src='./suit.jpg';}" alt="Available Creations" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="p-6 border-t border-atelier-border">
                                 <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">01 / Garments For Collector</span>
@@ -221,8 +221,8 @@
                         </div>
 
                         <div onclick="switchView('machine')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
-                            <div class="h-64 bg-atelier-bg overflow-hidden relative">
-                                <img src="./Mh1.jpg" onerror="if(this.src.indexOf('mh1.jpg')===-1){this.src='./mh1.jpg';}" alt="Designing Machine Lab" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                            <div class="h-56 bg-atelier-bg overflow-hidden relative">
+                                <img src="./Mh1.jpg" onerror="if(this.src.indexOf('mh1.jpg')===-1){this.src='./mh1.jpg';}" alt="Designing Machine Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="p-6 border-t border-atelier-border">
                                 <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">02 / Behind-The-Scenes Engine</span>
@@ -233,8 +233,8 @@
                         </div>
 
                         <div onclick="switchView('sold-out')" class="group cursor-pointer bg-atelier-card border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden">
-                            <div class="h-64 bg-atelier-bg overflow-hidden relative">
-                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90" alt="Sold Out Archive" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="h-56 bg-atelier-bg overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90" alt="Sold Out Archive" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="p-6 border-t border-atelier-border">
                                 <span class="font-cinzel text-xs text-atelier-gold tracking-[0.2em] uppercase block mb-2">03 / Retired 1-of-1 Works</span>
@@ -256,7 +256,7 @@
                         <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Active 1-of-1 Garments</p>
                         <h2 class="font-cinzel text-3xl md:text-4xl font-bold tracking-wider text-white">Available Pieces</h2>
                     </div>
-                    <p class="text-xs text-atelier-goldLight/60 mt-3 md:mt-0">Each garment has its own meaning, craft story, and price. Tap to inspect or shortlist.</p>
+                    <p class="text-xs text-atelier-goldLight/60 mt-3 md:mt-0">Each garment has its own meaning, craft story, and price. Tap to inspect or zoom.</p>
                 </div>
                 <div id="dynamicAvailableGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
@@ -374,7 +374,7 @@
                     <p class="text-xs font-cinzel tracking-[0.3em] text-atelier-gold uppercase mb-2">Behind-The-Scenes Production Engine</p>
                     <h2 class="font-cinzel text-3xl md:text-4xl font-bold tracking-wider text-white">The Designing Machine Lab</h2>
                     <p class="text-xs md:text-sm text-atelier-goldLight/70 mt-3 leading-relaxed">
-                        These machines are <strong class="text-white">not for sale</strong>. They are the real tools and studio/warehouse work behind QVAXZION—stitching, embroidering, and printing our designs. Whenever new machines or behind-the-scenes clips/photos are added, they live right here.
+                        These machines are <strong class="text-white">not for sale</strong>. They are the real tools and studio/warehouse work behind QVAXZION—stitching, embroidering, and printing our designs. Tap any photo or card to zoom full view.
                     </p>
                 </div>
                 <div id="dynamicMachineGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
@@ -394,8 +394,8 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div onclick="openItemModal('QX-01 Monolith Overcoat', 'SERIES 01 · CAPSULE', 'Structured heavy wool silhouette featuring custom hardware and numbered inner tag.', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90', '$480', 'Standing tall against cold winds & noise', 'QX-01')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
-                        <div class="h-72 bg-atelier-bg relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90" alt="Monolith Overcoat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="h-56 bg-atelier-bg relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=90" alt="Monolith Overcoat" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -407,8 +407,8 @@
                     </div>
 
                     <div onclick="openItemModal('QX-02 Vanguard Cipher Hoodie', 'SERIES 01 · CAPSULE', 'Heavyweight loopback cotton with tonal QVAXZION embroidery and double-lined hood.', 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90', '$250', 'Everyday armor built with street resilience', 'QX-02')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
-                        <div class="h-72 bg-atelier-bg relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90" alt="Vanguard Cipher Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="h-56 bg-atelier-bg relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=90" alt="Vanguard Cipher Hoodie" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -420,8 +420,8 @@
                     </div>
 
                     <div onclick="openItemModal('QX-03 Apex Silk Trousers', 'SERIES 01 · CAPSULE', 'High-waist architectural pleating designed with fine technical twill weave.', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90', '$320', 'Clean lines for sharp movement', 'QX-03')" class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden cursor-pointer">
-                        <div class="h-72 bg-atelier-bg relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90" alt="Apex Silk Trousers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="h-56 bg-atelier-bg relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90" alt="Apex Silk Trousers" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-center mb-2">
@@ -448,7 +448,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div onclick="openItemModal('BOOT-01 Vanguard Combat Boot', '1-OF-1', 'Full-grain matte calfskin leather boot with reinforced toe structure.', 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1200&q=90', '$650', 'Grounded step & heavy-duty stance', 'BOOT-01')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
-                        <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
+                        <div class="h-56 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=1200&q=90" alt="Vanguard Combat Boot" class="w-full h-full object-cover">
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white mb-2">Vanguard Combat Boot</h3>
@@ -457,7 +457,7 @@
                     </div>
 
                     <div onclick="openItemModal('BOOT-02 Monolith Platform Derby', '1-OF-1', 'Sculptural leather derby with stacked sole and welted bespoke construction.', 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=90', '$590', 'Elevated silhouette with clean poise', 'BOOT-02')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
-                        <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
+                        <div class="h-56 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=90" alt="Monolith Platform Derby" class="w-full h-full object-cover">
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white mb-2">Monolith Platform Derby</h3>
@@ -466,7 +466,7 @@
                     </div>
 
                     <div onclick="openItemModal('BOOT-03 Cipher Tactical Sneaker-Boot', '1-OF-1', 'High-top architectural boot silhouette featuring clean sculpted panels.', 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1200&q=90', '$520', 'Street agility meets tailored structure', 'BOOT-03')" class="bg-atelier-card border border-atelier-border p-6 cursor-pointer hover:border-atelier-gold transition-all">
-                        <div class="h-64 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
+                        <div class="h-56 bg-atelier-bg border border-atelier-border mb-5 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1200&q=90" alt="Cipher Tactical Sneaker-Boot" class="w-full h-full object-cover">
                         </div>
                         <h3 class="font-cinzel text-base font-bold text-white mb-2">Cipher Tactical Sneaker-Boot</h3>
@@ -490,8 +490,8 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div onclick="openItemModal('Bespoke Runway Overcoat', 'COMMISSION #01 · DELIVERED', 'Custom heavy wool overcoat with hand-forged hardware.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission', 'JOB-01')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
-                        <div class="h-64 bg-atelier-bg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90" alt="Bespoke Runway Overcoat" class="w-full h-full object-cover">
+                        <div class="h-56 bg-atelier-bg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90" alt="Bespoke Runway Overcoat" class="w-full h-full object-cover object-top">
                         </div>
                         <div class="p-6 border-t border-atelier-border">
                             <h3 class="font-cinzel text-base font-bold text-white mb-2">Bespoke Runway Overcoat</h3>
@@ -500,8 +500,8 @@
                     </div>
 
                     <div onclick="openItemModal('Architectural Cipher Suit', 'COMMISSION #02 · DELIVERED', 'Tailored blazer and pleated trousers.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission', 'JOB-02')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
-                        <div class="h-64 bg-atelier-bg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90" alt="Architectural Cipher Suit" class="w-full h-full object-cover">
+                        <div class="h-56 bg-atelier-bg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90" alt="Architectural Cipher Suit" class="w-full h-full object-cover object-top">
                         </div>
                         <div class="p-6 border-t border-atelier-border">
                             <h3 class="font-cinzel text-base font-bold text-white mb-2">Architectural Cipher Suit</h3>
@@ -510,8 +510,8 @@
                     </div>
 
                     <div onclick="openItemModal('Series 01 Leather Harness', 'COMMISSION #03 · DELIVERED', 'Hand-riveted leather harness with gold hardware.', 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90', 'DELIVERED', 'Completed & delivered 1-of-1 commission', 'JOB-03')" class="bg-atelier-surface border border-atelier-border overflow-hidden cursor-pointer hover:border-atelier-gold transition-all">
-                        <div class="h-64 bg-atelier-bg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90" alt="Series 01 Leather Harness" class="w-full h-full object-cover">
+                        <div class="h-56 bg-atelier-bg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1200&q=90" alt="Series 01 Leather Harness" class="w-full h-full object-cover object-top">
                         </div>
                         <div class="p-6 border-t border-atelier-border">
                             <h3 class="font-cinzel text-base font-bold text-white mb-2">Series 01 Leather Harness</h3>
@@ -947,10 +947,10 @@
             }
         ];
 
-        let maisonCatalog = JSON.parse(localStorage.getItem("qvaxzion_maison_catalog_v6")) || INITIAL_PIECES;
+        let maisonCatalog = JSON.parse(localStorage.getItem("qvaxzion_maison_catalog_v7")) || INITIAL_PIECES;
 
         function persistCatalog() {
-            localStorage.setItem("qvaxzion_maison_catalog_v6", JSON.stringify(maisonCatalog));
+            localStorage.setItem("qvaxzion_maison_catalog_v7", JSON.stringify(maisonCatalog));
             renderCatalogViews();
             renderAdminList();
         }
@@ -992,10 +992,10 @@
                 return `
                     <div class="group bg-atelier-surface border border-atelier-border hover:border-atelier-gold transition-all overflow-hidden flex flex-col justify-between">
                         <div>
-                            <div onclick="event.stopPropagation(); openZoomViewer('${item.image}', '${item.fallback}', '${safeTitle}')" class="h-72 bg-atelier-bg relative overflow-hidden cursor-zoom-in border-b border-atelier-border">
-                                <img src="${item.image}" onerror="if(this.src !== '${item.fallback}'){this.src='${item.fallback}';}" alt="${item.title}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                            <div onclick="event.stopPropagation(); openZoomViewer('${item.image}', '${item.fallback}', '${safeTitle}')" class="h-56 bg-atelier-bg relative overflow-hidden cursor-zoom-in border-b border-atelier-border">
+                                <img src="${item.image}" onerror="if(this.src !== '${item.fallback}'){this.src='${item.fallback}';}" alt="${item.title}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                                 <span class="absolute top-3 left-3 px-2.5 py-1 border text-[9px] font-mono tracking-wider uppercase ${statusLabel.cls}">${statusLabel.text}</span>
-                                <span class="absolute top-3 right-3 px-2 py-1 bg-atelier-bg/90 border border-atelier-border text-[9px] font-cinzel text-atelier-gold">🔍 ZOOM</span>
+                                <span class="absolute top-3 right-3 px-2 py-1 bg-atelier-bg/90 border border-atelier-border text-[9px] font-cinzel text-atelier-gold">🔍 FULL VIEW</span>
                                 ${priceBadge}
                             </div>
                             <div onclick="openItemModal('${safeTitle}', '${statusLabel.text}', '${safeDesc}', '${item.image}', '${safePrice}', '${item.fallback}', '${safeMeaning}', '${safeSpec}')" class="p-6 cursor-pointer">
